@@ -11,7 +11,7 @@ An end-to-end Microsoft Fabric implementation for the DairyCo BI Consultant case
 | `config/ingestion_config.json` | The metadata that drives ingestion: 22 entities with source, format, bronze table, load type, business key, sensitivity and owner |
 | `notebooks/` | Fabric notebook sources (`# %%` cells): `nb_01_bronze_ingest`, `nb_02_silver_transform`, `nb_03_gold_star_schema`, `nb_05_ml_demand_forecast` |
 | `pipelines/pl_dairyco_daily.json` | Orchestration pipeline definition (bronze → silver → gold → ML) |
-| `semantic-model/DairyCo Analytics.SemanticModel/` | The semantic model as TMDL: tables, relationships, ~100 measures, RLS/OLS roles |
+| `semantic-model/DairyCo Analytics.SemanticModel/` | The semantic model as TMDL: tables, relationships, 95 measures, RLS/OLS roles |
 | `report/DairyCo Management.Report/` | 3-page report definition (PBIP; opens in Power BI Desktop together with the model folder) |
 | `scripts/` | Deploy tooling: `fabric.py` (deploy/run notebooks and pipelines, fetch logs), `upload_landing.py`, `deploy_pipeline.py`, `build_model.py` (TMDL generator and deploy), `build_report.py`, `findings.py` (recomputes every figure from gold), `olq.py` (read gold Delta tables locally) |
 | `docs/` | Architecture and decisions, EDA and DQ, security and production readiness, AI, explainer briefs and Q&A, `findings_numbers.json` |
