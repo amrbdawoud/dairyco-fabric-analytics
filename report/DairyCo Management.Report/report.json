@@ -1,0 +1,580 @@
+{
+ "config": "{\"version\": \"5.77\", \"themeCollection\": {\"baseTheme\": {\"name\": \"Fluent2-CY26SU09\", \"type\": 2, \"version\": {\"visual\": \"2.13.0\", \"report\": \"3.4.0\", \"page\": \"2.3.1\"}}}, \"activeSectionIndex\": 0, \"defaultDrillFilterOtherVisuals\": true, \"settings\": {\"useNewFilterPaneExperience\": true, \"allowChangeFilterTypes\": true, \"useStylableVisualContainerHeader\": true, \"queryLimitOption\": 6, \"useEnhancedTooltips\": true, \"exportDataMode\": 1, \"useDefaultAggregateDisplayName\": true}}",
+ "layoutOptimization": 0,
+ "resourcePackages": [
+  {
+   "resourcePackage": {
+    "disabled": false,
+    "items": [
+     {
+      "name": "Fluent2-CY26SU09",
+      "path": "BaseThemes/Fluent2-CY26SU09.json",
+      "type": 202
+     }
+    ],
+    "name": "SharedResources",
+    "type": 2
+   }
+  }
+ ],
+ "sections": [
+  {
+   "config": "{}",
+   "displayName": "Executive Performance",
+   "displayOption": 1,
+   "filters": "[]",
+   "height": 1080,
+   "name": "ReportSectionec6ef230f1828039ee79",
+   "ordinal": 0,
+   "visualContainers": [
+    {
+     "config": "{\"name\": \"13298cc387a40f99539a\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 10, \"z\": 1, \"width\": 1460, \"height\": 90, \"tabOrder\": 1}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Revenue +7.6%, gross profit \\u22125.4%: the margin broke in January 2026\", \"textStyle\": {\"fontSize\": \"20pt\", \"fontWeight\": \"bold\", \"color\": \"#1F3864\"}}]}, {\"textRuns\": [{\"value\": \"Jan\\u2013Aug 2026 vs Jan\\u2013Aug 2025 (like-for-like). Every figure is a governed measure in the DairyCo Analytics semantic model.\", \"textStyle\": {\"fontSize\": \"11pt\", \"fontWeight\": \"normal\", \"color\": \"#595959\"}}]}]}}]}}}",
+     "filters": "[]",
+     "height": 90,
+     "width": 1460,
+     "x": 20,
+     "y": 10,
+     "z": 1
+    },
+    {
+     "config": "{\"name\": \"c57b618d7fa496d686c3\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1500, \"y\": 20, \"z\": 2, \"width\": 190, \"height\": 60, \"tabOrder\": 2}}], \"singleVisual\": {\"visualType\": \"slicer\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Region.Region\", \"active\": true}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Region\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Region\"}, \"Name\": \"Region.Region\", \"NativeReferenceName\": \"Region\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Region'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 60,
+     "width": 190,
+     "x": 1500,
+     "y": 20,
+     "z": 2
+    },
+    {
+     "config": "{\"name\": \"1dd64a4abddfa4b4d797\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1710, \"y\": 20, \"z\": 3, \"width\": 190, \"height\": 60, \"tabOrder\": 3}}], \"singleVisual\": {\"visualType\": \"slicer\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Customer.Channel\", \"active\": true}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Customer\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Channel\"}, \"Name\": \"Customer.Channel\", \"NativeReferenceName\": \"Channel\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Channel'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 60,
+     "width": 190,
+     "x": 1710,
+     "y": 20,
+     "z": 3
+    },
+    {
+     "config": "{\"name\": \"1c96c9919c45aeb1c6d9\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 110, \"z\": 4, \"width\": 226, \"height\": 120, \"tabOrder\": 4}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Sales.Net Revenue\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Sales\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Net Revenue\"}, \"Name\": \"Sales.Net Revenue\", \"NativeReferenceName\": \"Net Revenue\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1000000D\"}}}, \"labelPrecision\": {\"expr\": {\"Literal\": {\"Value\": \"2L\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Net revenue 2026 YTD (EGP)'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[{\"name\": \"ed2b0f7910f0a41e9e5c\", \"expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Entity\": \"Date\"}}, \"Property\": \"Year\"}}, \"filter\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Date\", \"Type\": 0}], \"Where\": [{\"Condition\": {\"In\": {\"Expressions\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"Year\"}}], \"Values\": [[{\"Literal\": {\"Value\": \"2026L\"}}]]}}}]}, \"type\": \"Categorical\", \"howCreated\": 1}]",
+     "height": 120,
+     "width": 226,
+     "x": 20,
+     "y": 110,
+     "z": 4
+    },
+    {
+     "config": "{\"name\": \"62d138afaa6adc9e8132\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 256, \"y\": 110, \"z\": 5, \"width\": 226, \"height\": 120, \"tabOrder\": 5}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Sales.Revenue Growth %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Sales\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Revenue Growth %\"}, \"Name\": \"Sales.Revenue Growth %\", \"NativeReferenceName\": \"Revenue Growth %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Revenue growth vs 2025'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[{\"name\": \"ed2b0f7910f0a41e9e5c\", \"expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Entity\": \"Date\"}}, \"Property\": \"Year\"}}, \"filter\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Date\", \"Type\": 0}], \"Where\": [{\"Condition\": {\"In\": {\"Expressions\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"Year\"}}], \"Values\": [[{\"Literal\": {\"Value\": \"2026L\"}}]]}}}]}, \"type\": \"Categorical\", \"howCreated\": 1}]",
+     "height": 120,
+     "width": 226,
+     "x": 256,
+     "y": 110,
+     "z": 5
+    },
+    {
+     "config": "{\"name\": \"5f5e4bb00f53136ef9d4\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 492, \"y\": 110, \"z\": 6, \"width\": 226, \"height\": 120, \"tabOrder\": 6}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Sales.Gross Profit\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Sales\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Gross Profit\"}, \"Name\": \"Sales.Gross Profit\", \"NativeReferenceName\": \"Gross Profit\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1000000D\"}}}, \"labelPrecision\": {\"expr\": {\"Literal\": {\"Value\": \"2L\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Gross profit 2026 YTD (EGP)'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[{\"name\": \"ed2b0f7910f0a41e9e5c\", \"expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Entity\": \"Date\"}}, \"Property\": \"Year\"}}, \"filter\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Date\", \"Type\": 0}], \"Where\": [{\"Condition\": {\"In\": {\"Expressions\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"Year\"}}], \"Values\": [[{\"Literal\": {\"Value\": \"2026L\"}}]]}}}]}, \"type\": \"Categorical\", \"howCreated\": 1}]",
+     "height": 120,
+     "width": 226,
+     "x": 492,
+     "y": 110,
+     "z": 6
+    },
+    {
+     "config": "{\"name\": \"ec7aaa592c1594137428\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 728, \"y\": 110, \"z\": 7, \"width\": 226, \"height\": 120, \"tabOrder\": 7}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Sales.Gross Profit Growth %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Sales\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Gross Profit Growth %\"}, \"Name\": \"Sales.Gross Profit Growth %\", \"NativeReferenceName\": \"Gross Profit Growth %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Gross profit growth vs 2025'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[{\"name\": \"ed2b0f7910f0a41e9e5c\", \"expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Entity\": \"Date\"}}, \"Property\": \"Year\"}}, \"filter\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Date\", \"Type\": 0}], \"Where\": [{\"Condition\": {\"In\": {\"Expressions\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"Year\"}}], \"Values\": [[{\"Literal\": {\"Value\": \"2026L\"}}]]}}}]}, \"type\": \"Categorical\", \"howCreated\": 1}]",
+     "height": 120,
+     "width": 226,
+     "x": 728,
+     "y": 110,
+     "z": 7
+    },
+    {
+     "config": "{\"name\": \"aea789386e693a2d3939\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 964, \"y\": 110, \"z\": 8, \"width\": 226, \"height\": 120, \"tabOrder\": 8}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Sales.Gross Margin %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Sales\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Gross Margin %\"}, \"Name\": \"Sales.Gross Margin %\", \"NativeReferenceName\": \"Gross Margin %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Gross margin 2026 YTD'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[{\"name\": \"ed2b0f7910f0a41e9e5c\", \"expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Entity\": \"Date\"}}, \"Property\": \"Year\"}}, \"filter\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Date\", \"Type\": 0}], \"Where\": [{\"Condition\": {\"In\": {\"Expressions\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"Year\"}}], \"Values\": [[{\"Literal\": {\"Value\": \"2026L\"}}]]}}}]}, \"type\": \"Categorical\", \"howCreated\": 1}]",
+     "height": 120,
+     "width": 226,
+     "x": 964,
+     "y": 110,
+     "z": 8
+    },
+    {
+     "config": "{\"name\": \"331ee4157a16f5e7db85\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1200, \"y\": 110, \"z\": 9, \"width\": 226, \"height\": 120, \"tabOrder\": 9}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Sales.Gross Margin Change pp\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Sales\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Gross Margin Change pp\"}, \"Name\": \"Sales.Gross Margin Change pp\", \"NativeReferenceName\": \"Gross Margin Change pp\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Margin change vs 2025 (pp)'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[{\"name\": \"ed2b0f7910f0a41e9e5c\", \"expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Entity\": \"Date\"}}, \"Property\": \"Year\"}}, \"filter\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Date\", \"Type\": 0}], \"Where\": [{\"Condition\": {\"In\": {\"Expressions\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"Year\"}}], \"Values\": [[{\"Literal\": {\"Value\": \"2026L\"}}]]}}}]}, \"type\": \"Categorical\", \"howCreated\": 1}]",
+     "height": 120,
+     "width": 226,
+     "x": 1200,
+     "y": 110,
+     "z": 9
+    },
+    {
+     "config": "{\"name\": \"1a58174c87df6ba456d1\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1436, \"y\": 110, \"z\": 10, \"width\": 226, \"height\": 120, \"tabOrder\": 10}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Sales.Sales Volume Growth %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Sales\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Sales Volume Growth %\"}, \"Name\": \"Sales.Sales Volume Growth %\", \"NativeReferenceName\": \"Sales Volume Growth %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Volume growth vs 2025'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[{\"name\": \"ed2b0f7910f0a41e9e5c\", \"expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Entity\": \"Date\"}}, \"Property\": \"Year\"}}, \"filter\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Date\", \"Type\": 0}], \"Where\": [{\"Condition\": {\"In\": {\"Expressions\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"Year\"}}], \"Values\": [[{\"Literal\": {\"Value\": \"2026L\"}}]]}}}]}, \"type\": \"Categorical\", \"howCreated\": 1}]",
+     "height": 120,
+     "width": 226,
+     "x": 1436,
+     "y": 110,
+     "z": 10
+    },
+    {
+     "config": "{\"name\": \"ea37040b24524aabb2f2\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1672, \"y\": 110, \"z\": 11, \"width\": 226, \"height\": 120, \"tabOrder\": 11}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Returns.Return Rate %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Returns\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Return Rate %\"}, \"Name\": \"Returns.Return Rate %\", \"NativeReferenceName\": \"Return Rate %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Return rate 2026 YTD'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[{\"name\": \"ed2b0f7910f0a41e9e5c\", \"expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Entity\": \"Date\"}}, \"Property\": \"Year\"}}, \"filter\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Date\", \"Type\": 0}], \"Where\": [{\"Condition\": {\"In\": {\"Expressions\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"Year\"}}], \"Values\": [[{\"Literal\": {\"Value\": \"2026L\"}}]]}}}]}, \"type\": \"Categorical\", \"howCreated\": 1}]",
+     "height": 120,
+     "width": 226,
+     "x": 1672,
+     "y": 110,
+     "z": 11
+    },
+    {
+     "config": "{\"name\": \"f3e25bdb587b8576ffa4\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 250, \"z\": 12, \"width\": 1180, \"height\": 400, \"tabOrder\": 12}}], \"singleVisual\": {\"visualType\": \"lineStackedColumnComboChart\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Category\": [{\"queryRef\": \"Date.Year Month\", \"active\": true}], \"Y\": [{\"queryRef\": \"Sales.Net Revenue\"}], \"Y2\": [{\"queryRef\": \"Sales.Gross Margin %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Date\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Sales\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Year Month\"}, \"Name\": \"Date.Year Month\", \"NativeReferenceName\": \"Year Month\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Net Revenue\"}, \"Name\": \"Sales.Net Revenue\", \"NativeReferenceName\": \"Net Revenue\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Gross Margin %\"}, \"Name\": \"Sales.Gross Margin %\", \"NativeReferenceName\": \"Gross Margin %\"}]}, \"objects\": {\"valueAxis\": [{\"properties\": {\"secStart\": {\"expr\": {\"Literal\": {\"Value\": \"0.2D\"}}}, \"secEnd\": {\"expr\": {\"Literal\": {\"Value\": \"0.3D\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Net revenue (columns) vs gross margin % (line): margin steps down from 28.4% to 25.0% in Jan 2026'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 400,
+     "width": 1180,
+     "x": 20,
+     "y": 250,
+     "z": 12
+    },
+    {
+     "config": "{\"name\": \"42afba4fef1ed226ecb9\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1220, \"y\": 250, \"z\": 13, \"width\": 680, \"height\": 40, \"tabOrder\": 13}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"The five profit leaks (EGP, Jan 2025 \\u2013 Aug 2026)\", \"textStyle\": {\"fontSize\": \"13pt\", \"fontWeight\": \"bold\", \"color\": \"#1F3864\"}}]}]}}]}}}",
+     "filters": "[]",
+     "height": 40,
+     "width": 680,
+     "x": 1220,
+     "y": 250,
+     "z": 13
+    },
+    {
+     "config": "{\"name\": \"2cef2348ea567beaaa21\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1220, \"y\": 290, \"z\": 14, \"width\": 336, \"height\": 115, \"tabOrder\": 14}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Sales.Cost Variance vs Standard\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Sales\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Cost Variance vs Standard\"}, \"Name\": \"Sales.Cost Variance vs Standard\", \"NativeReferenceName\": \"Cost Variance vs Standard\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#C0392B'\"}}}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1000D\"}}}, \"labelPrecision\": {\"expr\": {\"Literal\": {\"Value\": \"0L\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'1 \\u00b7 Cost above stale standard (Milk, 2026)'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 115,
+     "width": 336,
+     "x": 1220,
+     "y": 290,
+     "z": 14
+    },
+    {
+     "config": "{\"name\": \"85445b840272341c7f8c\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1564, \"y\": 290, \"z\": 15, \"width\": 336, \"height\": 115, \"tabOrder\": 15}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Production.Avoidable Scrap Cost\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Production\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Avoidable Scrap Cost\"}, \"Name\": \"Production.Avoidable Scrap Cost\", \"NativeReferenceName\": \"Avoidable Scrap Cost\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#C0392B'\"}}}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1000D\"}}}, \"labelPrecision\": {\"expr\": {\"Literal\": {\"Value\": \"0L\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'2 \\u00b7 Avoidable scrap vs Plant 1 rate'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 115,
+     "width": 336,
+     "x": 1564,
+     "y": 290,
+     "z": 15
+    },
+    {
+     "config": "{\"name\": \"3c7a84c72495e96e8196\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1220, \"y\": 413, \"z\": 16, \"width\": 336, \"height\": 115, \"tabOrder\": 16}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Distributor Month.Excess Channel Stock Value\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Distributor Month\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Excess Channel Stock Value\"}, \"Name\": \"Distributor Month.Excess Channel Stock Value\", \"NativeReferenceName\": \"Excess Channel Stock Value\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#C0392B'\"}}}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1000D\"}}}, \"labelPrecision\": {\"expr\": {\"Literal\": {\"Value\": \"0L\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'3 \\u00b7 Excess distributor stock (latest month)'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 115,
+     "width": 336,
+     "x": 1220,
+     "y": 413,
+     "z": 16
+    },
+    {
+     "config": "{\"name\": \"ee552dafff754d83164b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1564, \"y\": 413, \"z\": 17, \"width\": 336, \"height\": 115, \"tabOrder\": 17}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Inventory Snapshot.Average Near-Expiry Stock Value\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Inventory Snapshot\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Average Near-Expiry Stock Value\"}, \"Name\": \"Inventory Snapshot.Average Near-Expiry Stock Value\", \"NativeReferenceName\": \"Average Near-Expiry Stock Value\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#C0392B'\"}}}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1000D\"}}}, \"labelPrecision\": {\"expr\": {\"Literal\": {\"Value\": \"0L\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'4 \\u00b7 Near-expiry stock (avg per week)'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 115,
+     "width": 336,
+     "x": 1564,
+     "y": 413,
+     "z": 17
+    },
+    {
+     "config": "{\"name\": \"7930bb8e7faa1c7d8fe5\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1220, \"y\": 536, \"z\": 18, \"width\": 680, \"height\": 114, \"tabOrder\": 18}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Promotion Performance.Net Promotion Return\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Promotion Performance\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Net Promotion Return\"}, \"Name\": \"Promotion Performance.Net Promotion Return\", \"NativeReferenceName\": \"Net Promotion Return\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"20D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#C0392B'\"}}}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1000000D\"}}}, \"labelPrecision\": {\"expr\": {\"Literal\": {\"Value\": \"2L\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'5 \\u00b7 Net return on promotion spend (incremental GP \\u2212 support cost)'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 114,
+     "width": 680,
+     "x": 1220,
+     "y": 536,
+     "z": 18
+    },
+    {
+     "config": "{\"name\": \"cc89d25066112b918419\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 670, \"z\": 19, \"width\": 600, \"height\": 390, \"tabOrder\": 19}}], \"singleVisual\": {\"visualType\": \"hundredPercentStackedColumnChart\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Category\": [{\"queryRef\": \"Date.Year\", \"active\": true}], \"Y\": [{\"queryRef\": \"Sales.Net Revenue\"}], \"Series\": [{\"queryRef\": \"Product.Category\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Date\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Sales\", \"Type\": 0}, {\"Name\": \"t2\", \"Entity\": \"Product\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Year\"}, \"Name\": \"Date.Year\", \"NativeReferenceName\": \"Year\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Net Revenue\"}, \"Name\": \"Sales.Net Revenue\", \"NativeReferenceName\": \"Net Revenue\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"Category\"}, \"Name\": \"Product.Category\", \"NativeReferenceName\": \"Category\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Mix shift: Milk (lowest margin) doubles its share of revenue'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 390,
+     "width": 600,
+     "x": 20,
+     "y": 670,
+     "z": 19
+    },
+    {
+     "config": "{\"name\": \"eaddbc308d155fa48500\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 640, \"y\": 670, \"z\": 20, \"width\": 600, \"height\": 390, \"tabOrder\": 20}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"projections\": {\"Category\": [{\"queryRef\": \"Product.Category\", \"active\": true}], \"Y\": [{\"queryRef\": \"Sales.Gross Margin %\"}, {\"queryRef\": \"Sales.Gross Margin % at Standard Cost\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Product\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Sales\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Category\"}, \"Name\": \"Product.Category\", \"NativeReferenceName\": \"Category\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Gross Margin %\"}, \"Name\": \"Sales.Gross Margin %\", \"NativeReferenceName\": \"Gross Margin %\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Gross Margin % at Standard Cost\"}, \"Name\": \"Sales.Gross Margin % at Standard Cost\", \"NativeReferenceName\": \"Gross Margin % at Standard Cost\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Gross Margin %\"}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Gross margin actual vs at (stale) standard cost'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 390,
+     "width": 600,
+     "x": 640,
+     "y": 670,
+     "z": 20
+    },
+    {
+     "config": "{\"name\": \"4f1851401ee5abf744b9\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1260, \"y\": 670, \"z\": 21, \"width\": 640, \"height\": 390, \"tabOrder\": 21}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Region.Region\"}, {\"queryRef\": \"Sales.Net Revenue\"}, {\"queryRef\": \"Sales.Revenue Growth %\"}, {\"queryRef\": \"Sales.Gross Margin %\"}, {\"queryRef\": \"Sales Target.Target Attainment Index\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Region\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Sales\", \"Type\": 0}, {\"Name\": \"t2\", \"Entity\": \"Sales Target\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Region\"}, \"Name\": \"Region.Region\", \"NativeReferenceName\": \"Region\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Net Revenue\"}, \"Name\": \"Sales.Net Revenue\", \"NativeReferenceName\": \"Net Revenue\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Revenue Growth %\"}, \"Name\": \"Sales.Revenue Growth %\", \"NativeReferenceName\": \"Revenue Growth %\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Gross Margin %\"}, \"Name\": \"Sales.Gross Margin %\", \"NativeReferenceName\": \"Gross Margin %\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"Target Attainment Index\"}, \"Name\": \"Sales Target.Target Attainment Index\", \"NativeReferenceName\": \"Target Attainment Index\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Net Revenue\"}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Regions 2026 YTD (Target Attainment Index: 1.00 = company average; targets under restatement)'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[{\"name\": \"ed2b0f7910f0a41e9e5c\", \"expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Entity\": \"Date\"}}, \"Property\": \"Year\"}}, \"filter\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Date\", \"Type\": 0}], \"Where\": [{\"Condition\": {\"In\": {\"Expressions\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"Year\"}}], \"Values\": [[{\"Literal\": {\"Value\": \"2026L\"}}]]}}}]}, \"type\": \"Categorical\", \"howCreated\": 1}]",
+     "height": 390,
+     "width": 640,
+     "x": 1260,
+     "y": 670,
+     "z": 21
+    }
+   ],
+   "width": 1920
+  },
+  {
+   "config": "{}",
+   "displayName": "Commercial",
+   "displayOption": 1,
+   "filters": "[]",
+   "height": 1080,
+   "name": "ReportSection1d665b9b1467944c128a",
+   "ordinal": 1,
+   "visualContainers": [
+    {
+     "config": "{\"name\": \"01ce6ddfc5d93838ae0f\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 10, \"z\": 22, \"width\": 1460, \"height\": 90, \"tabOrder\": 22}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Commercial: growth sits in five Milk SKUs, Nile is stuffing its channel, promotions don't pay back\", \"textStyle\": {\"fontSize\": \"20pt\", \"fontWeight\": \"bold\", \"color\": \"#1F3864\"}}]}, {\"textRuns\": [{\"value\": \"Sell-in (ERP) vs sell-out (distributor platform) \\u00b7 promotion attribution by product + region + date \\u00b7 CRM coverage: Modern Trade & Key Accounts only\", \"textStyle\": {\"fontSize\": \"11pt\", \"fontWeight\": \"normal\", \"color\": \"#595959\"}}]}]}}]}}}",
+     "filters": "[]",
+     "height": 90,
+     "width": 1460,
+     "x": 20,
+     "y": 10,
+     "z": 22
+    },
+    {
+     "config": "{\"name\": \"429aba44a6789b0dc586\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1500, \"y\": 20, \"z\": 23, \"width\": 190, \"height\": 60, \"tabOrder\": 23}}], \"singleVisual\": {\"visualType\": \"slicer\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Region.Region\", \"active\": true}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Region\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Region\"}, \"Name\": \"Region.Region\", \"NativeReferenceName\": \"Region\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Region'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 60,
+     "width": 190,
+     "x": 1500,
+     "y": 20,
+     "z": 23
+    },
+    {
+     "config": "{\"name\": \"c747851200d83399c834\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1710, \"y\": 20, \"z\": 24, \"width\": 190, \"height\": 60, \"tabOrder\": 24}}], \"singleVisual\": {\"visualType\": \"slicer\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Customer.Channel\", \"active\": true}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Customer\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Channel\"}, \"Name\": \"Customer.Channel\", \"NativeReferenceName\": \"Channel\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Channel'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 60,
+     "width": 190,
+     "x": 1710,
+     "y": 20,
+     "z": 24
+    },
+    {
+     "config": "{\"name\": \"2ed1d35bf4306f794254\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 110, \"z\": 25, \"width\": 226, \"height\": 120, \"tabOrder\": 25}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Sales.Net Revenue\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Sales\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Net Revenue\"}, \"Name\": \"Sales.Net Revenue\", \"NativeReferenceName\": \"Net Revenue\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1000000D\"}}}, \"labelPrecision\": {\"expr\": {\"Literal\": {\"Value\": \"2L\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Net revenue (EGP) (2026)'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[{\"name\": \"ed2b0f7910f0a41e9e5c\", \"expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Entity\": \"Date\"}}, \"Property\": \"Year\"}}, \"filter\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Date\", \"Type\": 0}], \"Where\": [{\"Condition\": {\"In\": {\"Expressions\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"Year\"}}], \"Values\": [[{\"Literal\": {\"Value\": \"2026L\"}}]]}}}]}, \"type\": \"Categorical\", \"howCreated\": 1}]",
+     "height": 120,
+     "width": 226,
+     "x": 20,
+     "y": 110,
+     "z": 25
+    },
+    {
+     "config": "{\"name\": \"d4ae30c5a3233b9ede90\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 256, \"y\": 110, \"z\": 26, \"width\": 226, \"height\": 120, \"tabOrder\": 26}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Sales.Revenue Growth %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Sales\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Revenue Growth %\"}, \"Name\": \"Sales.Revenue Growth %\", \"NativeReferenceName\": \"Revenue Growth %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Revenue growth YoY (2026)'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[{\"name\": \"ed2b0f7910f0a41e9e5c\", \"expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Entity\": \"Date\"}}, \"Property\": \"Year\"}}, \"filter\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Date\", \"Type\": 0}], \"Where\": [{\"Condition\": {\"In\": {\"Expressions\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"Year\"}}], \"Values\": [[{\"Literal\": {\"Value\": \"2026L\"}}]]}}}]}, \"type\": \"Categorical\", \"howCreated\": 1}]",
+     "height": 120,
+     "width": 226,
+     "x": 256,
+     "y": 110,
+     "z": 26
+    },
+    {
+     "config": "{\"name\": \"302c768006bfc3b145e0\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 492, \"y\": 110, \"z\": 27, \"width\": 226, \"height\": 120, \"tabOrder\": 27}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Sales.Average Selling Price\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Sales\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Average Selling Price\"}, \"Name\": \"Sales.Average Selling Price\", \"NativeReferenceName\": \"Average Selling Price\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Avg selling price (2026)'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[{\"name\": \"ed2b0f7910f0a41e9e5c\", \"expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Entity\": \"Date\"}}, \"Property\": \"Year\"}}, \"filter\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Date\", \"Type\": 0}], \"Where\": [{\"Condition\": {\"In\": {\"Expressions\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"Year\"}}], \"Values\": [[{\"Literal\": {\"Value\": \"2026L\"}}]]}}}]}, \"type\": \"Categorical\", \"howCreated\": 1}]",
+     "height": 120,
+     "width": 226,
+     "x": 492,
+     "y": 110,
+     "z": 27
+    },
+    {
+     "config": "{\"name\": \"262488d51220f4b66397\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 728, \"y\": 110, \"z\": 28, \"width\": 226, \"height\": 120, \"tabOrder\": 28}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Sales.Invoice Discount %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Sales\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Invoice Discount %\"}, \"Name\": \"Sales.Invoice Discount %\", \"NativeReferenceName\": \"Invoice Discount %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Invoice discount (2026)'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[{\"name\": \"ed2b0f7910f0a41e9e5c\", \"expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Entity\": \"Date\"}}, \"Property\": \"Year\"}}, \"filter\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Date\", \"Type\": 0}], \"Where\": [{\"Condition\": {\"In\": {\"Expressions\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"Year\"}}], \"Values\": [[{\"Literal\": {\"Value\": \"2026L\"}}]]}}}]}, \"type\": \"Categorical\", \"howCreated\": 1}]",
+     "height": 120,
+     "width": 226,
+     "x": 728,
+     "y": 110,
+     "z": 28
+    },
+    {
+     "config": "{\"name\": \"bc78e20b7314cb0e92e5\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 964, \"y\": 110, \"z\": 29, \"width\": 226, \"height\": 120, \"tabOrder\": 29}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Sales.Promoted Revenue %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Sales\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Promoted Revenue %\"}, \"Name\": \"Sales.Promoted Revenue %\", \"NativeReferenceName\": \"Promoted Revenue %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Revenue on promotion (2026)'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[{\"name\": \"ed2b0f7910f0a41e9e5c\", \"expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Entity\": \"Date\"}}, \"Property\": \"Year\"}}, \"filter\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Date\", \"Type\": 0}], \"Where\": [{\"Condition\": {\"In\": {\"Expressions\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"Year\"}}], \"Values\": [[{\"Literal\": {\"Value\": \"2026L\"}}]]}}}]}, \"type\": \"Categorical\", \"howCreated\": 1}]",
+     "height": 120,
+     "width": 226,
+     "x": 964,
+     "y": 110,
+     "z": 29
+    },
+    {
+     "config": "{\"name\": \"6b6a9c8e5fb42772fe64\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1200, \"y\": 110, \"z\": 30, \"width\": 226, \"height\": 120, \"tabOrder\": 30}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Distributor Month.Sell-through %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Distributor Month\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Sell-through %\"}, \"Name\": \"Distributor Month.Sell-through %\", \"NativeReferenceName\": \"Sell-through %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Distributor sell-through (2026)'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[{\"name\": \"ed2b0f7910f0a41e9e5c\", \"expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Entity\": \"Date\"}}, \"Property\": \"Year\"}}, \"filter\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Date\", \"Type\": 0}], \"Where\": [{\"Condition\": {\"In\": {\"Expressions\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"Year\"}}], \"Values\": [[{\"Literal\": {\"Value\": \"2026L\"}}]]}}}]}, \"type\": \"Categorical\", \"howCreated\": 1}]",
+     "height": 120,
+     "width": 226,
+     "x": 1200,
+     "y": 110,
+     "z": 30
+    },
+    {
+     "config": "{\"name\": \"cc26eb8f9818fcf6efcb\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1436, \"y\": 110, \"z\": 31, \"width\": 226, \"height\": 120, \"tabOrder\": 31}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"CRM Opportunity.Open Pipeline Value\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"CRM Opportunity\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Open Pipeline Value\"}, \"Name\": \"CRM Opportunity.Open Pipeline Value\", \"NativeReferenceName\": \"Open Pipeline Value\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1000000D\"}}}, \"labelPrecision\": {\"expr\": {\"Literal\": {\"Value\": \"2L\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Open CRM pipeline'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 120,
+     "width": 226,
+     "x": 1436,
+     "y": 110,
+     "z": 31
+    },
+    {
+     "config": "{\"name\": \"86d6afd88af828a31efc\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1672, \"y\": 110, \"z\": 32, \"width\": 226, \"height\": 120, \"tabOrder\": 32}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"CRM Opportunity.Stale Pipeline %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"CRM Opportunity\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Stale Pipeline %\"}, \"Name\": \"CRM Opportunity.Stale Pipeline %\", \"NativeReferenceName\": \"Stale Pipeline %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Pipeline past close date'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 120,
+     "width": 226,
+     "x": 1672,
+     "y": 110,
+     "z": 32
+    },
+    {
+     "config": "{\"name\": \"0f6988f1178aacccc478\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 250, \"z\": 33, \"width\": 560, \"height\": 810, \"tabOrder\": 33}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"projections\": {\"Category\": [{\"queryRef\": \"Product.Product\", \"active\": true}], \"Y\": [{\"queryRef\": \"Sales.Revenue Growth %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Product\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Sales\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Product\"}, \"Name\": \"Product.Product\", \"NativeReferenceName\": \"Product\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Revenue Growth %\"}, \"Name\": \"Sales.Revenue Growth %\", \"NativeReferenceName\": \"Revenue Growth %\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Revenue Growth %\"}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Revenue growth by SKU, 2026 vs 2025: Milk 1001\\u20131005 +120\\u2013170%, the rest \\u221218% to \\u221227%'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[{\"name\": \"ed2b0f7910f0a41e9e5c\", \"expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Entity\": \"Date\"}}, \"Property\": \"Year\"}}, \"filter\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Date\", \"Type\": 0}], \"Where\": [{\"Condition\": {\"In\": {\"Expressions\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"Year\"}}], \"Values\": [[{\"Literal\": {\"Value\": \"2026L\"}}]]}}}]}, \"type\": \"Categorical\", \"howCreated\": 1}]",
+     "height": 810,
+     "width": 560,
+     "x": 20,
+     "y": 250,
+     "z": 33
+    },
+    {
+     "config": "{\"name\": \"63aedd1c7d7910dd87df\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 600, \"y\": 250, \"z\": 34, \"width\": 1300, \"height\": 300, \"tabOrder\": 34}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Distributor.Distributor\"}, {\"queryRef\": \"Sales.Net Revenue\"}, {\"queryRef\": \"Sales.Revenue Growth %\"}, {\"queryRef\": \"Distributor Month.Sell-in Units\"}, {\"queryRef\": \"Distributor Month.Sell-out Units\"}, {\"queryRef\": \"Distributor Month.Sell-through %\"}, {\"queryRef\": \"Distributor Month.Distributor Months of Cover\"}, {\"queryRef\": \"Distributor Month.Excess Channel Stock Value\"}, {\"queryRef\": \"Returns.Return Rate %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Distributor\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Sales\", \"Type\": 0}, {\"Name\": \"t2\", \"Entity\": \"Distributor Month\", \"Type\": 0}, {\"Name\": \"t3\", \"Entity\": \"Returns\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Distributor\"}, \"Name\": \"Distributor.Distributor\", \"NativeReferenceName\": \"Distributor\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Net Revenue\"}, \"Name\": \"Sales.Net Revenue\", \"NativeReferenceName\": \"Net Revenue\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Revenue Growth %\"}, \"Name\": \"Sales.Revenue Growth %\", \"NativeReferenceName\": \"Revenue Growth %\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"Sell-in Units\"}, \"Name\": \"Distributor Month.Sell-in Units\", \"NativeReferenceName\": \"Sell-in Units\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"Sell-out Units\"}, \"Name\": \"Distributor Month.Sell-out Units\", \"NativeReferenceName\": \"Sell-out Units\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"Sell-through %\"}, \"Name\": \"Distributor Month.Sell-through %\", \"NativeReferenceName\": \"Sell-through %\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"Distributor Months of Cover\"}, \"Name\": \"Distributor Month.Distributor Months of Cover\", \"NativeReferenceName\": \"Distributor Months of Cover\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"Excess Channel Stock Value\"}, \"Name\": \"Distributor Month.Excess Channel Stock Value\", \"NativeReferenceName\": \"Excess Channel Stock Value\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t3\"}}, \"Property\": \"Return Rate %\"}, \"Name\": \"Returns.Return Rate %\", \"NativeReferenceName\": \"Return Rate %\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"Distributor Months of Cover\"}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Distributor scorecard 2026 YTD \\u2014 judge distributors on sell-out and stock cover, not sell-in'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[{\"name\": \"ed2b0f7910f0a41e9e5c\", \"expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Entity\": \"Date\"}}, \"Property\": \"Year\"}}, \"filter\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Date\", \"Type\": 0}], \"Where\": [{\"Condition\": {\"In\": {\"Expressions\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"Year\"}}], \"Values\": [[{\"Literal\": {\"Value\": \"2026L\"}}]]}}}]}, \"type\": \"Categorical\", \"howCreated\": 1}]",
+     "height": 300,
+     "width": 1300,
+     "x": 600,
+     "y": 250,
+     "z": 34
+    },
+    {
+     "config": "{\"name\": \"cabb4800e5896acad452\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 600, \"y\": 570, \"z\": 35, \"width\": 640, \"height\": 490, \"tabOrder\": 35}}], \"singleVisual\": {\"visualType\": \"lineChart\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Category\": [{\"queryRef\": \"Date.Year Month\", \"active\": true}], \"Y\": [{\"queryRef\": \"Distributor Month.Sell-in Units\"}, {\"queryRef\": \"Distributor Month.Sell-out Units\"}, {\"queryRef\": \"Distributor Month.Distributor Stock Units\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Date\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Distributor Month\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Year Month\"}, \"Name\": \"Date.Year Month\", \"NativeReferenceName\": \"Year Month\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Sell-in Units\"}, \"Name\": \"Distributor Month.Sell-in Units\", \"NativeReferenceName\": \"Sell-in Units\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Sell-out Units\"}, \"Name\": \"Distributor Month.Sell-out Units\", \"NativeReferenceName\": \"Sell-out Units\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Distributor Stock Units\"}, \"Name\": \"Distributor Month.Distributor Stock Units\", \"NativeReferenceName\": \"Distributor Stock Units\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Sell-in vs sell-out vs distributor stock (select a distributor above)'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 490,
+     "width": 640,
+     "x": 600,
+     "y": 570,
+     "z": 35
+    },
+    {
+     "config": "{\"name\": \"27e26dca597b6ba4069c\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1260, \"y\": 570, \"z\": 36, \"width\": 640, \"height\": 490, \"tabOrder\": 36}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Promotion.Promotion\"}, {\"queryRef\": \"Promotion Performance.Promotion Support Cost\"}, {\"queryRef\": \"Promotion Performance.Average Volume Lift %\"}, {\"queryRef\": \"Promotion Performance.Net Promotion Return\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Promotion\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Promotion Performance\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Promotion\"}, \"Name\": \"Promotion.Promotion\", \"NativeReferenceName\": \"Promotion\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Promotion Support Cost\"}, \"Name\": \"Promotion Performance.Promotion Support Cost\", \"NativeReferenceName\": \"Promotion Support Cost\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Average Volume Lift %\"}, \"Name\": \"Promotion Performance.Average Volume Lift %\", \"NativeReferenceName\": \"Average Volume Lift %\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Net Promotion Return\"}, \"Name\": \"Promotion Performance.Net Promotion Return\", \"NativeReferenceName\": \"Net Promotion Return\"}], \"OrderBy\": [{\"Direction\": 1, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Net Promotion Return\"}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Promotion ROI \\u2014 0 of 37 measurable promotions cover their support cost'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 490,
+     "width": 640,
+     "x": 1260,
+     "y": 570,
+     "z": 36
+    }
+   ],
+   "width": 1920
+  },
+  {
+   "config": "{}",
+   "displayName": "Operations",
+   "displayOption": 1,
+   "filters": "[]",
+   "height": 1080,
+   "name": "ReportSection7bc3ca68769437ce9864",
+   "ordinal": 2,
+   "visualContainers": [
+    {
+     "config": "{\"name\": \"3561191d0a721449a8f0\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 10, \"z\": 37, \"width\": 1460, \"height\": 90, \"tabOrder\": 37}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Operations: plan attainment hides Plant 2 / Shift C scrap and a copy-paste forecast\", \"textStyle\": {\"fontSize\": \"20pt\", \"fontWeight\": \"bold\", \"color\": \"#1F3864\"}}]}, {\"textRuns\": [{\"value\": \"Production plan attainment on actual vs good output \\u00b7 forecast bias by category \\u00b7 weekly warehouse snapshots \\u00b7 labour aggregated to plant/line/shift (no individual pay)\", \"textStyle\": {\"fontSize\": \"11pt\", \"fontWeight\": \"normal\", \"color\": \"#595959\"}}]}]}}]}}}",
+     "filters": "[]",
+     "height": 90,
+     "width": 1460,
+     "x": 20,
+     "y": 10,
+     "z": 37
+    },
+    {
+     "config": "{\"name\": \"f37ec84216dcef83ee33\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1500, \"y\": 20, \"z\": 38, \"width\": 190, \"height\": 60, \"tabOrder\": 38}}], \"singleVisual\": {\"visualType\": \"slicer\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Date.Year\", \"active\": true}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Date\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Year\"}, \"Name\": \"Date.Year\", \"NativeReferenceName\": \"Year\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Year'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 60,
+     "width": 190,
+     "x": 1500,
+     "y": 20,
+     "z": 38
+    },
+    {
+     "config": "{\"name\": \"484c65d9f0ad1f8a17df\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1710, \"y\": 20, \"z\": 39, \"width\": 190, \"height\": 60, \"tabOrder\": 39}}], \"singleVisual\": {\"visualType\": \"slicer\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Production Unit.Plant\", \"active\": true}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Production Unit\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Plant\"}, \"Name\": \"Production Unit.Plant\", \"NativeReferenceName\": \"Plant\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Plant'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 60,
+     "width": 190,
+     "x": 1710,
+     "y": 20,
+     "z": 39
+    },
+    {
+     "config": "{\"name\": \"2a28d14126da0266f568\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 110, \"z\": 40, \"width\": 226, \"height\": 120, \"tabOrder\": 40}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Production.Production Plan Attainment %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Production\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Production Plan Attainment %\"}, \"Name\": \"Production.Production Plan Attainment %\", \"NativeReferenceName\": \"Production Plan Attainment %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Plan attainment (actual)'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 120,
+     "width": 226,
+     "x": 20,
+     "y": 110,
+     "z": 40
+    },
+    {
+     "config": "{\"name\": \"a22f4a6e0d7b29919438\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 256, \"y\": 110, \"z\": 41, \"width\": 226, \"height\": 120, \"tabOrder\": 41}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Production.Good Output Attainment %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Production\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Good Output Attainment %\"}, \"Name\": \"Production.Good Output Attainment %\", \"NativeReferenceName\": \"Good Output Attainment %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Plan attainment (good)'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 120,
+     "width": 226,
+     "x": 256,
+     "y": 110,
+     "z": 41
+    },
+    {
+     "config": "{\"name\": \"7a01e77d7c196d7fb30c\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 492, \"y\": 110, \"z\": 42, \"width\": 226, \"height\": 120, \"tabOrder\": 42}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Production.Scrap Rate %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Production\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Scrap Rate %\"}, \"Name\": \"Production.Scrap Rate %\", \"NativeReferenceName\": \"Scrap Rate %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Scrap rate'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 120,
+     "width": 226,
+     "x": 492,
+     "y": 110,
+     "z": 42
+    },
+    {
+     "config": "{\"name\": \"d983bf8c3f23f1678c62\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 728, \"y\": 110, \"z\": 43, \"width\": 226, \"height\": 120, \"tabOrder\": 43}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Labour.Overtime Hours per Employee\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Labour\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Overtime Hours per Employee\"}, \"Name\": \"Labour.Overtime Hours per Employee\", \"NativeReferenceName\": \"Overtime Hours per Employee\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'OT hrs / employee / month'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 120,
+     "width": 226,
+     "x": 728,
+     "y": 110,
+     "z": 43
+    },
+    {
+     "config": "{\"name\": \"c42697ab8ac3fbf5f1f9\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 964, \"y\": 110, \"z\": 44, \"width\": 226, \"height\": 120, \"tabOrder\": 44}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Demand Forecast.Forecast Error % (WAPE)\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Demand Forecast\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Forecast Error % (WAPE)\"}, \"Name\": \"Demand Forecast.Forecast Error % (WAPE)\", \"NativeReferenceName\": \"Forecast Error % (WAPE)\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'MRP forecast error (WAPE)'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 120,
+     "width": 226,
+     "x": 964,
+     "y": 110,
+     "z": 44
+    },
+    {
+     "config": "{\"name\": \"66f9fcd0b45ccf08dd21\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1200, \"y\": 110, \"z\": 45, \"width\": 226, \"height\": 120, \"tabOrder\": 45}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Demand Forecast.Forecast Bias %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Demand Forecast\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Forecast Bias %\"}, \"Name\": \"Demand Forecast.Forecast Bias %\", \"NativeReferenceName\": \"Forecast Bias %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'MRP forecast bias'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 120,
+     "width": 226,
+     "x": 1200,
+     "y": 110,
+     "z": 45
+    },
+    {
+     "config": "{\"name\": \"4e9885333a31491f96ac\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1436, \"y\": 110, \"z\": 46, \"width\": 226, \"height\": 120, \"tabOrder\": 46}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Inventory Snapshot.Near-Expiry Stock %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Inventory Snapshot\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Near-Expiry Stock %\"}, \"Name\": \"Inventory Snapshot.Near-Expiry Stock %\", \"NativeReferenceName\": \"Near-Expiry Stock %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Stock near expiry'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 120,
+     "width": 226,
+     "x": 1436,
+     "y": 110,
+     "z": 46
+    },
+    {
+     "config": "{\"name\": \"ec287bf79a0365bd2e32\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1672, \"y\": 110, \"z\": 47, \"width\": 226, \"height\": 120, \"tabOrder\": 47}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Inventory Snapshot.Stockout Proxy %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Inventory Snapshot\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Stockout Proxy %\"}, \"Name\": \"Inventory Snapshot.Stockout Proxy %\", \"NativeReferenceName\": \"Stockout Proxy %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"26D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Stockout proxy*'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 120,
+     "width": 226,
+     "x": 1672,
+     "y": 110,
+     "z": 47
+    },
+    {
+     "config": "{\"name\": \"b823a3cebafda7e0f3da\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 250, \"z\": 48, \"width\": 1060, \"height\": 380, \"tabOrder\": 48}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Production Unit.Plant\"}, {\"queryRef\": \"Production Unit.Shift\"}, {\"queryRef\": \"Production.Production Plan Attainment %\"}, {\"queryRef\": \"Production.Scrap Rate %\"}, {\"queryRef\": \"Labour.Overtime Hours per Employee\"}, {\"queryRef\": \"Labour.Absence Rate %\"}, {\"queryRef\": \"Production.Avoidable Scrap Cost\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Production Unit\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Production\", \"Type\": 0}, {\"Name\": \"t2\", \"Entity\": \"Labour\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Plant\"}, \"Name\": \"Production Unit.Plant\", \"NativeReferenceName\": \"Plant\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Shift\"}, \"Name\": \"Production Unit.Shift\", \"NativeReferenceName\": \"Shift\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Production Plan Attainment %\"}, \"Name\": \"Production.Production Plan Attainment %\", \"NativeReferenceName\": \"Production Plan Attainment %\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Scrap Rate %\"}, \"Name\": \"Production.Scrap Rate %\", \"NativeReferenceName\": \"Scrap Rate %\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"Overtime Hours per Employee\"}, \"Name\": \"Labour.Overtime Hours per Employee\", \"NativeReferenceName\": \"Overtime Hours per Employee\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"Absence Rate %\"}, \"Name\": \"Labour.Absence Rate %\", \"NativeReferenceName\": \"Absence Rate %\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Avoidable Scrap Cost\"}, \"Name\": \"Production.Avoidable Scrap Cost\", \"NativeReferenceName\": \"Avoidable Scrap Cost\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Scrap Rate %\"}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Plant \\u00d7 shift: scrap, downtime, overtime and absence move together (avoidable scrap vs Plant 1 average)'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 380,
+     "width": 1060,
+     "x": 20,
+     "y": 250,
+     "z": 48
+    },
+    {
+     "config": "{\"name\": \"8d00f3c871c386da16a4\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1100, \"y\": 250, \"z\": 49, \"width\": 390, \"height\": 380, \"tabOrder\": 49}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"projections\": {\"Category\": [{\"queryRef\": \"Product.Category\", \"active\": true}], \"Y\": [{\"queryRef\": \"Demand Forecast.Forecast Bias %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Product\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Demand Forecast\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Category\"}, \"Name\": \"Product.Category\", \"NativeReferenceName\": \"Category\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Forecast Bias %\"}, \"Name\": \"Demand Forecast.Forecast Bias %\", \"NativeReferenceName\": \"Forecast Bias %\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Forecast Bias %\"}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'MRP forecast bias by category (+ = over-forecast)'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 380,
+     "width": 390,
+     "x": 1100,
+     "y": 250,
+     "z": 49
+    },
+    {
+     "config": "{\"name\": \"d9cd162fa1d238ee9b96\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1510, \"y\": 250, \"z\": 50, \"width\": 390, \"height\": 380, \"tabOrder\": 50}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"projections\": {\"Category\": [{\"queryRef\": \"Product.Category\", \"active\": true}], \"Y\": [{\"queryRef\": \"Inventory Snapshot.Days of Cover\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Product\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Inventory Snapshot\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Category\"}, \"Name\": \"Product.Category\", \"NativeReferenceName\": \"Category\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Days of Cover\"}, \"Name\": \"Inventory Snapshot.Days of Cover\", \"NativeReferenceName\": \"Days of Cover\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Days of Cover\"}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Warehouse days of cover by category'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 380,
+     "width": 390,
+     "x": 1510,
+     "y": 250,
+     "z": 50
+    },
+    {
+     "config": "{\"name\": \"b5ffcc53debcc05c6213\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 650, \"z\": 51, \"width\": 600, \"height\": 410, \"tabOrder\": 51}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"projections\": {\"Category\": [{\"queryRef\": \"Production.Downtime Reason\", \"active\": true}], \"Y\": [{\"queryRef\": \"Production.Downtime Hours\"}], \"Series\": [{\"queryRef\": \"Production Unit.Plant\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Production\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Production Unit\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Downtime Reason\"}, \"Name\": \"Production.Downtime Reason\", \"NativeReferenceName\": \"Downtime Reason\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Downtime Hours\"}, \"Name\": \"Production.Downtime Hours\", \"NativeReferenceName\": \"Downtime Hours\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Plant\"}, \"Name\": \"Production Unit.Plant\", \"NativeReferenceName\": \"Plant\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Downtime Hours\"}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Downtime hours by reason and plant'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 410,
+     "width": 600,
+     "x": 20,
+     "y": 650,
+     "z": 51
+    },
+    {
+     "config": "{\"name\": \"62dbfa273a5353bb3572\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 640, \"y\": 650, \"z\": 52, \"width\": 420, \"height\": 50, \"tabOrder\": 52}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"AI prototype \\u2014 forecast error, 6-month out-of-sample backtest\", \"textStyle\": {\"fontSize\": \"12pt\", \"fontWeight\": \"bold\", \"color\": \"#1F3864\"}}]}]}}]}}}",
+     "filters": "[]",
+     "height": 50,
+     "width": 420,
+     "x": 640,
+     "y": 650,
+     "z": 52
+    },
+    {
+     "config": "{\"name\": \"3afb9c0adc3f3d83fcde\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 640, \"y\": 700, \"z\": 53, \"width\": 205, \"height\": 115, \"tabOrder\": 53}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"ML Demand Forecast.MRP Backtest WAPE %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"ML Demand Forecast\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"MRP Backtest WAPE %\"}, \"Name\": \"ML Demand Forecast.MRP Backtest WAPE %\", \"NativeReferenceName\": \"MRP Backtest WAPE %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"22D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#C0392B'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'MRP forecast (today)'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 115,
+     "width": 205,
+     "x": 640,
+     "y": 700,
+     "z": 53
+    },
+    {
+     "config": "{\"name\": \"f139242609888fd4238b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 855, \"y\": 700, \"z\": 54, \"width\": 205, \"height\": 115, \"tabOrder\": 54}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"ML Demand Forecast.Rule Backtest WAPE %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"ML Demand Forecast\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Rule Backtest WAPE %\"}, \"Name\": \"ML Demand Forecast.Rule Backtest WAPE %\", \"NativeReferenceName\": \"Rule Backtest WAPE %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"22D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Bias-corrected rule'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 115,
+     "width": 205,
+     "x": 855,
+     "y": 700,
+     "z": 54
+    },
+    {
+     "config": "{\"name\": \"8a1fe4d689e7948fc088\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 640, \"y\": 825, \"z\": 55, \"width\": 205, \"height\": 115, \"tabOrder\": 55}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"ML Demand Forecast.ML Backtest WAPE %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"ML Demand Forecast\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"ML Backtest WAPE %\"}, \"Name\": \"ML Demand Forecast.ML Backtest WAPE %\", \"NativeReferenceName\": \"ML Backtest WAPE %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"22D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1E8449'\"}}}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'ML correction model'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 115,
+     "width": 205,
+     "x": 640,
+     "y": 825,
+     "z": 55
+    },
+    {
+     "config": "{\"name\": \"87feeef75ca31eb7dbfd\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 855, \"y\": 825, \"z\": 56, \"width\": 205, \"height\": 115, \"tabOrder\": 56}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Stock Rebalancing.Excess Stock Value\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Stock Rebalancing\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Excess Stock Value\"}, \"Name\": \"Stock Rebalancing.Excess Stock Value\", \"NativeReferenceName\": \"Excess Stock Value\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"22D\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}, \"labelDisplayUnits\": {\"expr\": {\"Literal\": {\"Value\": \"1000000D\"}}}, \"labelPrecision\": {\"expr\": {\"Literal\": {\"Value\": \"2L\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Stock above target cover'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 115,
+     "width": 205,
+     "x": 855,
+     "y": 825,
+     "z": 56
+    },
+    {
+     "config": "{\"name\": \"854811fc4c3094ac2797\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 640, \"y\": 945, \"z\": 57, \"width\": 420, \"height\": 110, \"tabOrder\": 57}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Target cover = 50% of shelf life. Stock and invoice volumes appear to be on different scales; use for allocation (which DC/SKU), not absolute value.\", \"textStyle\": {\"fontSize\": \"10pt\", \"fontWeight\": \"normal\", \"color\": \"#595959\"}}]}]}}]}}}",
+     "filters": "[]",
+     "height": 110,
+     "width": 420,
+     "x": 640,
+     "y": 945,
+     "z": 57
+    },
+    {
+     "config": "{\"name\": \"6a17682e51815addd506\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1080, \"y\": 650, \"z\": 58, \"width\": 820, \"height\": 410, \"tabOrder\": 58}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Data Quality.Rule Id\"}, {\"queryRef\": \"Data Quality.Rule\"}, {\"queryRef\": \"Data Quality.Severity\"}, {\"queryRef\": \"Data Quality.DQ Violations\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Data Quality\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Rule Id\"}, \"Name\": \"Data Quality.Rule Id\", \"NativeReferenceName\": \"Rule Id\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Rule\"}, \"Name\": \"Data Quality.Rule\", \"NativeReferenceName\": \"Rule\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Severity\"}, \"Name\": \"Data Quality.Severity\", \"NativeReferenceName\": \"Severity\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"DQ Violations\"}, \"Name\": \"Data Quality.DQ Violations\", \"NativeReferenceName\": \"DQ Violations\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"DQ Violations\"}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Data trust: latest data-quality checks (flagged, not silently fixed). *Stockout = proxy (no order/backorder data)'\"}}}, \"fontColor\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#1F3864'\"}}}}}}}]}}}",
+     "filters": "[]",
+     "height": 410,
+     "width": 820,
+     "x": 1080,
+     "y": 650,
+     "z": 58
+    }
+   ],
+   "width": 1920
+  }
+ ]
+}

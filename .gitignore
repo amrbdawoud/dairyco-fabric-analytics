@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+# raw assessment data is not republished
+data/
+Data/
+*.csv
+*.jsonl
+# PBIP local caches
+**/.pbi/localSettings.json
+**/.pbi/cache.abf

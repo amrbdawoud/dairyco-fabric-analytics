@@ -1,0 +1,152 @@
+{
+ "properties": {
+  "description": "DairyCo daily load: metadata-driven bronze ingest, silver conform+DQ gate, gold star schema, ML forecast. Direct Lake model picks up new gold data automatically (no import refresh).",
+  "activities": [
+   {
+    "name": "Bronze ingest",
+    "type": "TridentNotebook",
+    "dependsOn": [],
+    "policy": {
+     "timeout": "0.02:00:00",
+     "retry": 2,
+     "retryIntervalInSeconds": 120,
+     "secureOutput": false,
+     "secureInput": false
+    },
+    "typeProperties": {
+     "notebookId": "f9f3f8da-bdfc-416b-9821-2a538569309d",
+     "workspaceId": "13f3caf0-07d5-45b6-aba0-319b493a9692",
+     "parameters": {
+      "batch_id": {
+       "value": {
+        "value": "@pipeline().RunId",
+        "type": "Expression"
+       },
+       "type": "string"
+      },
+      "load_date_filter": {
+       "value": {
+        "value": "@pipeline().parameters.load_date_filter",
+        "type": "Expression"
+       },
+       "type": "string"
+      }
+     }
+    }
+   },
+   {
+    "name": "Silver transform",
+    "type": "TridentNotebook",
+    "dependsOn": [
+     {
+      "activity": "Bronze ingest",
+      "dependencyConditions": [
+       "Succeeded"
+      ]
+     }
+    ],
+    "policy": {
+     "timeout": "0.02:00:00",
+     "retry": 2,
+     "retryIntervalInSeconds": 120,
+     "secureOutput": false,
+     "secureInput": false
+    },
+    "typeProperties": {
+     "notebookId": "902058fd-010c-4e17-b477-8bc259207bc5",
+     "workspaceId": "13f3caf0-07d5-45b6-aba0-319b493a9692",
+     "parameters": {
+      "batch_id": {
+       "value": {
+        "value": "@pipeline().RunId",
+        "type": "Expression"
+       },
+       "type": "string"
+      },
+      "full_reload": {
+       "value": {
+        "value": "@pipeline().parameters.full_reload",
+        "type": "Expression"
+       },
+       "type": "string"
+      }
+     }
+    }
+   },
+   {
+    "name": "Gold star schema",
+    "type": "TridentNotebook",
+    "dependsOn": [
+     {
+      "activity": "Silver transform",
+      "dependencyConditions": [
+       "Succeeded"
+      ]
+     }
+    ],
+    "policy": {
+     "timeout": "0.02:00:00",
+     "retry": 2,
+     "retryIntervalInSeconds": 120,
+     "secureOutput": false,
+     "secureInput": false
+    },
+    "typeProperties": {
+     "notebookId": "8c084ff9-4133-49c4-afd3-3f844e7c8c46",
+     "workspaceId": "13f3caf0-07d5-45b6-aba0-319b493a9692",
+     "parameters": {
+      "batch_id": {
+       "value": {
+        "value": "@pipeline().RunId",
+        "type": "Expression"
+       },
+       "type": "string"
+      }
+     }
+    }
+   },
+   {
+    "name": "ML demand forecast",
+    "type": "TridentNotebook",
+    "dependsOn": [
+     {
+      "activity": "Gold star schema",
+      "dependencyConditions": [
+       "Succeeded"
+      ]
+     }
+    ],
+    "policy": {
+     "timeout": "0.02:00:00",
+     "retry": 2,
+     "retryIntervalInSeconds": 120,
+     "secureOutput": false,
+     "secureInput": false
+    },
+    "typeProperties": {
+     "notebookId": "f7bc6772-5d1a-4a54-a7b2-f1c953d2e7ac",
+     "workspaceId": "13f3caf0-07d5-45b6-aba0-319b493a9692",
+     "parameters": {
+      "batch_id": {
+       "value": {
+        "value": "@pipeline().RunId",
+        "type": "Expression"
+       },
+       "type": "string"
+      }
+     }
+    }
+   }
+  ],
+  "parameters": {
+   "load_date_filter": {
+    "type": "string",
+    "defaultValue": ""
+   },
+   "full_reload": {
+    "type": "string",
+    "defaultValue": "false"
+   }
+  }
+ }
+}

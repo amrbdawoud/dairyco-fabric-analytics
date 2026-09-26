@@ -1,0 +1,22 @@
+/// Conformed sales region (6 regions + Unknown). Row-level security is applied on this table; every regional fact
+/// relates to it directly.
+table Region
+
+	column 'Region Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: region_key
+
+	column Region
+		dataType: string
+		summarizeBy: none
+		dataCategory: StateOrProvince
+		sourceColumn: region
+
+	partition Region = entity
+		mode: directLake
+		source
+			entityName: dim_region
+			expressionSource: 'DirectLake - Gold'
+

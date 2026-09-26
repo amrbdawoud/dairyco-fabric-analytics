@@ -1,0 +1,47 @@
+/// MRP monthly demand forecast by SKU (the incumbent forecast; the production plan copies it).
+table 'Demand Forecast'
+
+	/// MRP forecast units.
+	measure 'Forecast Units' = SUM('Demand Forecast'[Forecast Qty])
+		formatString: #,##0
+		displayFolder: Planning
+
+	/// (Forecast - actual) / actual. Positive = over-forecast (ageing stock risk), negative = under-forecast
+	/// (stockout risk).
+	measure 'Forecast Bias %' = DIVIDE([Forecast Units] - [Sales Volume], [Sales Volume])
+		formatString: 0.0%
+		displayFolder: Planning
+
+	/// Weighted absolute percentage error at SKU x month (sum of |forecast - actual| / actual).
+	measure 'Forecast Error % (WAPE)' = ```
+			VAR _grid = CROSSJOIN(VALUES('Product'[Product Key]), VALUES('Date'[Year Month]))
+			VAR _absErr = SUMX(_grid, ABS([Forecast Units] - [Sales Volume]))
+			RETURN DIVIDE(_absErr, [Sales Volume])
+			```
+		formatString: 0.0%
+		displayFolder: Planning
+
+	column 'Date Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: date_key
+
+	column 'Product Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: product_key
+
+	column 'Forecast Qty'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: forecast_qty
+
+	partition 'Demand Forecast' = entity
+		mode: directLake
+		source
+			entityName: fact_demand_forecast
+			expressionSource: 'DirectLake - Gold'
+

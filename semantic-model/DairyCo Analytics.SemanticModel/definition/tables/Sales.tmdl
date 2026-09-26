@@ -1,0 +1,254 @@
+/// ERP invoice lines (grain: invoice line). Region comes from the customer master, customer is the de-duplicated
+/// master, promotion is attributed by product + region + invoice date.
+table Sales
+
+	/// Invoiced net sales (gross less on-invoice discount), before returns. Official revenue KPI; EGP.
+	measure 'Net Revenue' = SUM('Sales'[Net Sales])
+		formatString: #,##0
+		displayFolder: Revenue
+
+	/// Quantity x list price before discount; EGP.
+	measure 'Gross Sales Amount' = SUM('Sales'[Gross Sales])
+		formatString: #,##0
+		displayFolder: Revenue
+
+	/// On-invoice discount; EGP.
+	measure 'Invoice Discount' = SUM('Sales'[Discount Amount])
+		formatString: #,##0
+		displayFolder: Revenue
+
+	/// On-invoice discount as a share of gross sales.
+	measure 'Invoice Discount %' = DIVIDE([Invoice Discount], [Gross Sales Amount])
+		formatString: 0.0%
+		displayFolder: Revenue
+
+	/// Units invoiced (packs, not litres/kg).
+	measure 'Sales Volume' = SUM('Sales'[Quantity])
+		formatString: #,##0
+		displayFolder: Volume
+
+	/// Net revenue per unit; moves with mix because list prices never changed.
+	measure 'Average Selling Price' = DIVIDE([Net Revenue], [Sales Volume])
+		formatString: #,##0.00
+		displayFolder: Revenue
+
+	/// Distinct master customers invoiced.
+	measure 'Active Customers' = DISTINCTCOUNT('Sales'[Customer Key])
+		formatString: #,##0
+		displayFolder: Volume
+
+	/// Actual COGS booked on invoice lines; EGP.
+	measure 'Cost of Goods Sold' = SUM('Sales'[COGS])
+		formatString: #,##0
+		displayFolder: Profitability
+
+	/// Net revenue less actual COGS; EGP.
+	measure 'Gross Profit' = [Net Revenue] - [Cost of Goods Sold]
+		formatString: #,##0
+		displayFolder: Profitability
+
+	/// Gross profit / net revenue.
+	measure 'Gross Margin %' = DIVIDE([Gross Profit], [Net Revenue])
+		formatString: 0.0%
+		displayFolder: Profitability
+
+	/// Quantity x ERP standard cost - what margin reporting based on master data assumes.
+	measure 'Standard Cost of Goods Sold' = SUM('Sales'[Standard COGS])
+		formatString: #,##0
+		displayFolder: Profitability
+
+	/// Actual minus standard COGS. Positive = costs running above the ERP standard (Leak 1: stale Milk standard costs
+	/// from Jan 2026).
+	measure 'Cost Variance vs Standard' = [Cost of Goods Sold] - [Standard Cost of Goods Sold]
+		formatString: #,##0
+		displayFolder: Profitability
+
+	/// The margin the business believes it makes if it prices off stale standard costs.
+	measure 'Gross Margin % at Standard Cost' = DIVIDE([Net Revenue] - [Standard Cost of Goods Sold], [Net Revenue])
+		formatString: 0.0%
+		displayFolder: Profitability
+
+	/// Net revenue for the same dates one year earlier, limited to dates that have actuals this year (like-for-like).
+	measure 'Net Revenue PY' = ```
+			VAR _dates = CALCULATETABLE(VALUES('Date'[Date]), 'Date'[Is Actuals Period] = TRUE())
+			RETURN CALCULATE([Net Revenue], DATEADD(_dates, -1, YEAR))
+			```
+		formatString: #,##0
+		displayFolder: Time Intelligence
+
+	/// Like-for-like year-on-year growth for the selected year (defaults to the latest year with actuals). Only 2026
+	/// Jan-Aug vs 2025 Jan-Aug is comparable (data starts Jan 2025).
+	measure 'Revenue Growth %' = ```
+			VAR _yr = IF(HASONEVALUE('Date'[Year]), VALUES('Date'[Year]),
+			    CALCULATE(MAX('Date'[Year]), 'Date'[Is Actuals Period] = TRUE(), REMOVEFILTERS('Date')))
+			VAR _cy = CALCULATE([Net Revenue], 'Date'[Is Actuals Period] = TRUE(), 'Date'[Year] = _yr)
+			VAR _py = CALCULATE([Net Revenue PY], 'Date'[Year] = _yr)
+			RETURN IF(NOT ISBLANK(_py), DIVIDE(_cy - _py, _py))
+			```
+		formatString: 0.0%
+		displayFolder: Time Intelligence
+
+	/// Gross profit, same dates last year (like-for-like).
+	measure 'Gross Profit PY' = ```
+			VAR _dates = CALCULATETABLE(VALUES('Date'[Date]), 'Date'[Is Actuals Period] = TRUE())
+			RETURN CALCULATE([Gross Profit], DATEADD(_dates, -1, YEAR))
+			```
+		formatString: #,##0
+		displayFolder: Time Intelligence
+
+	/// Like-for-like year-on-year gross profit growth.
+	measure 'Gross Profit Growth %' = ```
+			VAR _yr = IF(HASONEVALUE('Date'[Year]), VALUES('Date'[Year]),
+			    CALCULATE(MAX('Date'[Year]), 'Date'[Is Actuals Period] = TRUE(), REMOVEFILTERS('Date')))
+			VAR _cy = CALCULATE([Gross Profit], 'Date'[Is Actuals Period] = TRUE(), 'Date'[Year] = _yr)
+			VAR _py = CALCULATE([Gross Profit PY], 'Date'[Year] = _yr)
+			RETURN IF(NOT ISBLANK(_py), DIVIDE(_cy - _py, _py))
+			```
+		formatString: 0.0%
+		displayFolder: Time Intelligence
+
+	/// Gross margin, same dates last year.
+	measure 'Gross Margin % PY' = DIVIDE([Gross Profit PY], [Net Revenue PY])
+		formatString: 0.0%
+		displayFolder: Time Intelligence
+
+	/// Change in gross margin vs the same period last year (percentage points); defaults to the latest year with
+	/// actuals.
+	measure 'Gross Margin Change pp' = ```
+			VAR _yr = IF(HASONEVALUE('Date'[Year]), VALUES('Date'[Year]),
+			    CALCULATE(MAX('Date'[Year]), 'Date'[Is Actuals Period] = TRUE(), REMOVEFILTERS('Date')))
+			VAR _cy = CALCULATE([Gross Margin %], 'Date'[Is Actuals Period] = TRUE(), 'Date'[Year] = _yr)
+			VAR _py = CALCULATE([Gross Margin % PY], 'Date'[Year] = _yr)
+			RETURN IF(NOT ISBLANK(_py), _cy - _py)
+			```
+		formatString: 0.0%
+		displayFolder: Time Intelligence
+
+	/// Units, same dates last year (like-for-like).
+	measure 'Sales Volume PY' = ```
+			VAR _dates = CALCULATETABLE(VALUES('Date'[Date]), 'Date'[Is Actuals Period] = TRUE())
+			RETURN CALCULATE([Sales Volume], DATEADD(_dates, -1, YEAR))
+			```
+		formatString: #,##0
+		displayFolder: Time Intelligence
+
+	/// Like-for-like year-on-year unit growth.
+	measure 'Sales Volume Growth %' = ```
+			VAR _yr = IF(HASONEVALUE('Date'[Year]), VALUES('Date'[Year]),
+			    CALCULATE(MAX('Date'[Year]), 'Date'[Is Actuals Period] = TRUE(), REMOVEFILTERS('Date')))
+			VAR _cy = CALCULATE([Sales Volume], 'Date'[Is Actuals Period] = TRUE(), 'Date'[Year] = _yr)
+			VAR _py = CALCULATE([Sales Volume PY], 'Date'[Year] = _yr)
+			RETURN IF(NOT ISBLANK(_py), DIVIDE(_cy - _py, _py))
+			```
+		formatString: 0.0%
+		displayFolder: Time Intelligence
+
+	/// Calendar year-to-date net revenue.
+	measure 'Net Revenue YTD' = TOTALYTD([Net Revenue], 'Date'[Date])
+		formatString: #,##0
+		displayFolder: Time Intelligence
+
+	/// Share of net revenue sold inside a promotion window.
+	measure 'Promoted Revenue %' = DIVIDE(CALCULATE([Net Revenue], 'Sales'[Promotion Key] <> -1), [Net Revenue])
+		formatString: 0.0%
+		displayFolder: Promotions
+
+	/// Net revenue less the value of goods returned in the period (return-date basis).
+	measure 'Net Revenue after Returns' = [Net Revenue] - [Return Value]
+		formatString: #,##0
+		displayFolder: Revenue
+
+	column 'Invoice Id'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: invoice_id
+
+	column 'Date Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: date_key
+
+	column 'Customer Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: customer_key
+
+	column 'Product Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: product_key
+
+	column 'Distributor Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: distributor_key
+
+	column 'Region Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: region_key
+
+	column 'Promotion Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: promotion_key
+
+	column Quantity
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: quantity
+
+	column 'Gross Sales'
+		dataType: decimal
+		isHidden
+		summarizeBy: none
+		sourceColumn: gross_sales
+
+	column 'Discount Amount'
+		dataType: decimal
+		isHidden
+		summarizeBy: none
+		sourceColumn: discount_amount
+
+	column 'Net Sales'
+		dataType: decimal
+		isHidden
+		summarizeBy: none
+		sourceColumn: net_sales
+
+	column COGS
+		dataType: decimal
+		isHidden
+		summarizeBy: none
+		sourceColumn: cogs
+
+	column 'Standard COGS'
+		dataType: decimal
+		isHidden
+		summarizeBy: none
+		sourceColumn: standard_cogs
+
+	column 'DQ Duplicate Customer'
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: dq_duplicate_customer
+
+	column 'DQ Region Relabelled'
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: dq_region_relabelled
+
+	partition Sales = entity
+		mode: directLake
+		source
+			entityName: fact_sales
+			expressionSource: 'DirectLake - Gold'
+

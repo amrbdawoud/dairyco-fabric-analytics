@@ -1,0 +1,942 @@
+{
+ "headline": {
+  "rev_2025": 7552529.79,
+  "rev_2026": 8129088.08,
+  "rev_growth": 0.07633975714513541,
+  "vol_growth": 0.1059715948693345,
+  "gp_2025": 2147911.36,
+  "gp_2026": 2031445.86,
+  "gp_growth": -0.054222675185255254,
+  "gm_2025": 0.28439627776694937,
+  "gm_2026": 0.24989836990424147
+ },
+ "margin_bridge": {
+  "gm_2025": 0.28439627776694937,
+  "after_mix": 0.26937378329106976,
+  "after_cost": 0.24989836990424147,
+  "mix_pp": -0.01502249447587961,
+  "other_pp": -4.562883465991652e-05,
+  "cost_pp": -0.019429784552168372,
+  "milk_share_2025": 0.23484346825727648,
+  "milk_share_2026": 0.4569185538951621,
+  "cat_growth": {
+   "Juice": -0.23398774891297947,
+   "Milk": 1.0941591817910274,
+   "Yogurt": -0.2379875580726406,
+   "Cheese": -0.23588868585242062
+  },
+  "cat_gm_2025": {
+   "Juice": 0.2636389543958996,
+   "Milk": 0.23265116607964867,
+   "Yogurt": 0.2841683963573548,
+   "Cheese": 0.3253166644632613
+  },
+  "cat_gm_2026": {
+   "Yogurt": 0.28421504982428136,
+   "Milk": 0.190181019857742,
+   "Juice": 0.26207461074018995,
+   "Cheese": 0.32572418958581906
+  }
+ },
+ "monthly": [
+  {
+   "year_month": "2025-01",
+   "rev": 925089.77,
+   "gm": 0.28455389794225056,
+   "vol": 26927.0
+  },
+  {
+   "year_month": "2025-02",
+   "rev": 903394.14,
+   "gm": 0.2848698133020876,
+   "vol": 26232.0
+  },
+  {
+   "year_month": "2025-03",
+   "rev": 1034226.57,
+   "gm": 0.28532365978568897,
+   "vol": 29898.0
+  },
+  {
+   "year_month": "2025-04",
+   "rev": 991171.57,
+   "gm": 0.28526463889596837,
+   "vol": 28991.0
+  },
+  {
+   "year_month": "2025-05",
+   "rev": 996032.77,
+   "gm": 0.2830686885934486,
+   "vol": 29323.0
+  },
+  {
+   "year_month": "2025-06",
+   "rev": 933460.03,
+   "gm": 0.2843295175691668,
+   "vol": 27641.0
+  },
+  {
+   "year_month": "2025-07",
+   "rev": 897359.63,
+   "gm": 0.2838520493728919,
+   "vol": 26520.0
+  },
+  {
+   "year_month": "2025-08",
+   "rev": 871795.31,
+   "gm": 0.28379933587851025,
+   "vol": 25414.0
+  },
+  {
+   "year_month": "2025-09",
+   "rev": 812096.1,
+   "gm": 0.28469257517675556,
+   "vol": 23877.0
+  },
+  {
+   "year_month": "2025-10",
+   "rev": 845263.28,
+   "gm": 0.28295377979746145,
+   "vol": 24753.0
+  },
+  {
+   "year_month": "2025-11",
+   "rev": 866563.23,
+   "gm": 0.2846659325713601,
+   "vol": 25131.0
+  },
+  {
+   "year_month": "2025-12",
+   "rev": 957619.75,
+   "gm": 0.28338574888414736,
+   "vol": 28142.0
+  },
+  {
+   "year_month": "2026-01",
+   "rev": 1011823.76,
+   "gm": 0.24956096109069428,
+   "vol": 30426.0
+  },
+  {
+   "year_month": "2026-02",
+   "rev": 948509.15,
+   "gm": 0.2508298628431787,
+   "vol": 28465.0
+  },
+  {
+   "year_month": "2026-03",
+   "rev": 1097955.83,
+   "gm": 0.25014095512385043,
+   "vol": 33011.0
+  },
+  {
+   "year_month": "2026-04",
+   "rev": 1064228.12,
+   "gm": 0.24661112130733773,
+   "vol": 32217.0
+  },
+  {
+   "year_month": "2026-05",
+   "rev": 1089782.93,
+   "gm": 0.2506150926772178,
+   "vol": 32597.0
+  },
+  {
+   "year_month": "2026-06",
+   "rev": 1022973.72,
+   "gm": 0.251432607672463,
+   "vol": 30707.0
+  },
+  {
+   "year_month": "2026-07",
+   "rev": 957107.46,
+   "gm": 0.2491004510611588,
+   "vol": 29041.0
+  },
+  {
+   "year_month": "2026-08",
+   "rev": 936707.11,
+   "gm": 0.25107594197720995,
+   "vol": 27896.0
+  }
+ ],
+ "leak1_standard_cost": {
+  "cost_variance_2026": 157946.43,
+  "by_cat": [
+   {
+    "year": 2026,
+    "category": "Milk",
+    "cost_var": 157946.43,
+    "ratio": 1.055420005151247
+   }
+  ],
+  "skus": [
+   {
+    "sku": "SKU-1001",
+    "ratio": 1.0600011228479376
+   },
+   {
+    "sku": "SKU-1002",
+    "ratio": 1.0599971169249904
+   },
+   {
+    "sku": "SKU-1003",
+    "ratio": 1.0600076624637365
+   },
+   {
+    "sku": "SKU-1004",
+    "ratio": 1.060000023353813
+   },
+   {
+    "sku": "SKU-1005",
+    "ratio": 1.0600021162886226
+   }
+  ],
+  "milk_gm_at_std_2026": 0.2327045382978061,
+  "milk_gm_actual_2026": 0.190181019857742
+ },
+ "leak2_plant": {
+  "benchmark_plant1_avg": 0.027326402477412328,
+  "avoidable_scrap_cost_conservative": 298230.68049276003,
+  "avoidable_by_year": [
+   {
+    "year": 2025,
+    "stretch": 220871.23357594598,
+    "conservative": 166746.58921185613
+   },
+   {
+    "year": 2026,
+    "stretch": 173468.44447362146,
+    "conservative": 131484.09128090384
+   }
+  ],
+  "plan_attainment": 0.9981977081457739,
+  "good_attainment": 0.9534158336589623,
+  "scrap_rate": 0.04486273022004553,
+  "scrap_cost_total": 622200.52,
+  "benchmark_scrap": 0.018042418243144155,
+  "avoidable_scrap_cost": 394339.67804956745,
+  "by_plant_shift": [
+   {
+    "plant": "Plant 1",
+    "shift": "Shift A",
+    "plan": 112865.0,
+    "act": 109325.0,
+    "good": 107300.0,
+    "scrap": 2025.0,
+    "dt_per_order": 108.16111111111111,
+    "orders": 180,
+    "scrap_cost": 48464.13
+   },
+   {
+    "plant": "Plant 1",
+    "shift": "Shift B",
+    "plan": 111823.0,
+    "act": 108883.0,
+    "good": 106971.0,
+    "scrap": 1912.0,
+    "dt_per_order": 108.18681318681318,
+    "orders": 182,
+    "scrap_cost": 45917.42
+   },
+   {
+    "plant": "Plant 1",
+    "shift": "Shift C",
+    "plan": 77404.0,
+    "act": 75647.0,
+    "good": 71554.0,
+    "scrap": 4093.0,
+    "dt_per_order": 104.41525423728814,
+    "orders": 118,
+    "scrap_cost": 97325.32
+   },
+   {
+    "plant": "Plant 2",
+    "shift": "Shift A",
+    "plan": 106850.0,
+    "act": 109203.0,
+    "good": 103271.0,
+    "scrap": 5932.0,
+    "dt_per_order": 165.92349726775956,
+    "orders": 183,
+    "scrap_cost": 134350.73
+   },
+   {
+    "plant": "Plant 2",
+    "shift": "Shift B",
+    "plan": 107383.0,
+    "act": 110541.0,
+    "good": 104444.0,
+    "scrap": 6097.0,
+    "dt_per_order": 163.88770053475935,
+    "orders": 187,
+    "scrap_cost": 148505.53
+   },
+   {
+    "plant": "Plant 2",
+    "shift": "Shift C",
+    "plan": 64602.0,
+    "act": 66281.0,
+    "good": 60325.0,
+    "scrap": 5956.0,
+    "dt_per_order": 163.61818181818182,
+    "orders": 110,
+    "scrap_cost": 147637.39
+   }
+  ],
+  "labour": [
+   {
+    "plant": "Plant 1",
+    "shift": "Shift A",
+    "ot_per_emp": 10.18037037037037,
+    "absence": 0.030304608585858574,
+    "ot_cost": 998888.65,
+    "labour": 13332488.65
+   },
+   {
+    "plant": "Plant 1",
+    "shift": "Shift B",
+    "ot_per_emp": 10.345277777777778,
+    "absence": 0.02939709595959596,
+    "ot_cost": 919320.64,
+    "labour": 12216120.64
+   },
+   {
+    "plant": "Plant 1",
+    "shift": "Shift C",
+    "ot_per_emp": 18.008333333333333,
+    "absence": 0.052755681818181785,
+    "ot_cost": 1732355.8,
+    "labour": 13914755.8
+   },
+   {
+    "plant": "Plant 2",
+    "shift": "Shift A",
+    "ot_per_emp": 28.1705,
+    "absence": 0.05624005681818182,
+    "ot_cost": 3047958.37,
+    "labour": 16742358.37
+   },
+   {
+    "plant": "Plant 2",
+    "shift": "Shift B",
+    "ot_per_emp": 27.948,
+    "absence": 0.056992424242424254,
+    "ot_cost": 2783026.38,
+    "labour": 15408226.38
+   },
+   {
+    "plant": "Plant 2",
+    "shift": "Shift C",
+    "ot_per_emp": 35.98333333333333,
+    "absence": 0.08062642045454547,
+    "ot_cost": 3934933.99,
+    "labour": 17780533.99
+   }
+  ],
+  "ot_benchmark_share": 0.07508077125555354,
+  "excess_overtime_cost": 6834328.8277904615,
+  "ot_ytd_by_year": [
+   {
+    "year": 2025,
+    "ot": 5373580.48
+   },
+   {
+    "year": 2026,
+    "ot": 5346929.21
+   }
+  ],
+  "corr_ot_scrap_cells": 0.8868356978159474
+ },
+ "leak3_channel": {
+  "ytd": [
+   {
+    "year": 2025,
+    "distributor_key": 301,
+    "sell_in": 37796.0,
+    "sell_out": 33302.0
+   },
+   {
+    "year": 2026,
+    "distributor_key": 301,
+    "sell_in": 41117.0,
+    "sell_out": 23750.0
+   },
+   {
+    "year": 2025,
+    "distributor_key": 302,
+    "sell_in": 36574.0,
+    "sell_out": 32148.0
+   },
+   {
+    "year": 2026,
+    "distributor_key": 302,
+    "sell_in": 39697.0,
+    "sell_out": 34797.0
+   },
+   {
+    "year": 2025,
+    "distributor_key": 303,
+    "sell_in": 36048.0,
+    "sell_out": 31773.0
+   },
+   {
+    "year": 2026,
+    "distributor_key": 303,
+    "sell_in": 40921.0,
+    "sell_out": 35954.0
+   },
+   {
+    "year": 2025,
+    "distributor_key": 304,
+    "sell_in": 36114.0,
+    "sell_out": 31537.0
+   },
+   {
+    "year": 2026,
+    "distributor_key": 304,
+    "sell_in": 40324.0,
+    "sell_out": 35229.0
+   },
+   {
+    "year": 2025,
+    "distributor_key": 305,
+    "sell_in": 36166.0,
+    "sell_out": 31799.0
+   },
+   {
+    "year": 2026,
+    "distributor_key": 305,
+    "sell_in": 41280.0,
+    "sell_out": 36127.0
+   },
+   {
+    "year": 2025,
+    "distributor_key": 306,
+    "sell_in": 38248.0,
+    "sell_out": 33759.0
+   },
+   {
+    "year": 2026,
+    "distributor_key": 306,
+    "sell_in": 41021.0,
+    "sell_out": 35915.0
+   }
+  ],
+  "last_month_stock": [
+   {
+    "distributor_key": 301,
+    "distributor_name": "Nile Distribution",
+    "stock": 7525.0,
+    "so_month": 2741.0,
+    "stock_value": 253643.5747,
+    "excess_value": 198491.55256
+   },
+   {
+    "distributor_key": 302,
+    "distributor_name": "Mediterranean Foods",
+    "stock": 2484.0,
+    "so_month": 3778.0,
+    "stock_value": 86393.8301,
+    "excess_value": 12653.96194
+   },
+   {
+    "distributor_key": 303,
+    "distributor_name": "Delta Trade",
+    "stock": 2663.0,
+    "so_month": 4050.0,
+    "stock_value": 92667.2688,
+    "excess_value": 14252.8624
+   },
+   {
+    "distributor_key": 304,
+    "distributor_name": "Upper Egypt Distribution",
+    "stock": 2345.0,
+    "so_month": 3862.0,
+    "stock_value": 75953.6619,
+    "excess_value": 7375.4194
+   },
+   {
+    "distributor_key": 305,
+    "distributor_name": "Canal Consumer",
+    "stock": 2901.0,
+    "so_month": 4438.0,
+    "stock_value": 99340.3329,
+    "excess_value": 13309.2212
+   },
+   {
+    "distributor_key": 306,
+    "distributor_name": "Giza Markets",
+    "stock": 2556.0,
+    "so_month": 4056.0,
+    "stock_value": 84887.5673,
+    "excess_value": 9122.28398
+   }
+  ],
+  "nile_monthly": [
+   {
+    "year_month": "2025-01",
+    "sell_in": 4579.0,
+    "sell_out": 4081.0,
+    "stock": 2526.0
+   },
+   {
+    "year_month": "2025-02",
+    "sell_in": 4506.0,
+    "sell_out": 3980.0,
+    "stock": 2408.0
+   },
+   {
+    "year_month": "2025-03",
+    "sell_in": 5088.0,
+    "sell_out": 4433.0,
+    "stock": 2792.0
+   },
+   {
+    "year_month": "2025-04",
+    "sell_in": 5370.0,
+    "sell_out": 4673.0,
+    "stock": 2790.0
+   },
+   {
+    "year_month": "2025-05",
+    "sell_in": 4967.0,
+    "sell_out": 4252.0,
+    "stock": 2895.0
+   },
+   {
+    "year_month": "2025-06",
+    "sell_in": 4521.0,
+    "sell_out": 4060.0,
+    "stock": 2335.0
+   },
+   {
+    "year_month": "2025-07",
+    "sell_in": 4576.0,
+    "sell_out": 4123.0,
+    "stock": 2435.0
+   },
+   {
+    "year_month": "2025-08",
+    "sell_in": 4189.0,
+    "sell_out": 3700.0,
+    "stock": 2399.0
+   },
+   {
+    "year_month": "2025-09",
+    "sell_in": 4061.0,
+    "sell_out": 3526.0,
+    "stock": 2129.0
+   },
+   {
+    "year_month": "2025-10",
+    "sell_in": 4429.0,
+    "sell_out": 3975.0,
+    "stock": 2633.0
+   },
+   {
+    "year_month": "2025-11",
+    "sell_in": 4557.0,
+    "sell_out": 4024.0,
+    "stock": 2546.0
+   },
+   {
+    "year_month": "2025-12",
+    "sell_in": 4864.0,
+    "sell_out": 4193.0,
+    "stock": 2740.0
+   },
+   {
+    "year_month": "2026-01",
+    "sell_in": 4873.0,
+    "sell_out": 2812.0,
+    "stock": 7760.0
+   },
+   {
+    "year_month": "2026-02",
+    "sell_in": 4659.0,
+    "sell_out": 2693.0,
+    "stock": 7488.0
+   },
+   {
+    "year_month": "2026-03",
+    "sell_in": 5526.0,
+    "sell_out": 3194.0,
+    "stock": 8860.0
+   },
+   {
+    "year_month": "2026-04",
+    "sell_in": 5519.0,
+    "sell_out": 3189.0,
+    "stock": 8768.0
+   },
+   {
+    "year_month": "2026-05",
+    "sell_in": 5547.0,
+    "sell_out": 3203.0,
+    "stock": 8936.0
+   },
+   {
+    "year_month": "2026-06",
+    "sell_in": 5292.0,
+    "sell_out": 3057.0,
+    "stock": 8431.0
+   },
+   {
+    "year_month": "2026-07",
+    "sell_in": 4951.0,
+    "sell_out": 2861.0,
+    "stock": 7713.0
+   },
+   {
+    "year_month": "2026-08",
+    "sell_in": 4750.0,
+    "sell_out": 2741.0,
+    "stock": 7525.0
+   }
+  ],
+  "nile_excess_value": 198491.55256
+ },
+ "leak4_inventory": {
+  "avg_near_expiry_share": 0.2434295806777729,
+  "avg_near_expiry_by_cat": [
+   {
+    "category": "Cheese",
+    "avg_near_expiry_value": 171992.538045977,
+    "avg_stock_value": 699231.125862069
+   },
+   {
+    "category": "Juice",
+    "avg_near_expiry_value": 84034.04,
+    "avg_stock_value": 326884.04609195405
+   },
+   {
+    "category": "Milk",
+    "avg_near_expiry_value": 107750.30103448276,
+    "avg_stock_value": 489090.9947126437
+   },
+   {
+    "category": "Yogurt",
+    "avg_near_expiry_value": 106025.78528735632,
+    "avg_stock_value": 414642.4759770115
+   }
+  ],
+  "avg_near_expiry_total": 469802.66436781606,
+  "near_expiry_last_snapshot": 549240.38,
+  "stock_value_last_snapshot": 1974603.87,
+  "cover_days": [
+   {
+    "year": 2025,
+    "category": "Cheese",
+    "cover_days": 89.01958144586392,
+    "shelf_life": 90
+   },
+   {
+    "year": 2026,
+    "category": "Cheese",
+    "cover_days": 111.10239819055717,
+    "shelf_life": 90
+   },
+   {
+    "year": 2025,
+    "category": "Juice",
+    "cover_days": 85.77538215386883,
+    "shelf_life": 60
+   },
+   {
+    "year": 2026,
+    "category": "Juice",
+    "cover_days": 108.9319239902724,
+    "shelf_life": 60
+   },
+   {
+    "year": 2025,
+    "category": "Milk",
+    "cover_days": 88.37830151497361,
+    "shelf_life": 14
+   },
+   {
+    "year": 2026,
+    "category": "Milk",
+    "cover_days": 40.78264790680905,
+    "shelf_life": 14
+   },
+   {
+    "year": 2025,
+    "category": "Yogurt",
+    "cover_days": 88.66969189258221,
+    "shelf_life": 28
+   },
+   {
+    "year": 2026,
+    "category": "Yogurt",
+    "cover_days": 115.66696654029712,
+    "shelf_life": 28
+   }
+  ],
+  "forecast_bias": [
+   {
+    "year": 2025,
+    "category": "Cheese",
+    "fc": 65638.0,
+    "act": 66779.0,
+    "bias": -0.017086209736593805
+   },
+   {
+    "year": 2026,
+    "category": "Cheese",
+    "fc": 35081.0,
+    "act": 34978.0,
+    "bias": 0.0029447081022357935
+   },
+   {
+    "year": 2025,
+    "category": "Juice",
+    "fc": 67775.0,
+    "act": 68151.0,
+    "bias": -0.005517160423177958
+   },
+   {
+    "year": 2026,
+    "category": "Juice",
+    "fc": 36167.0,
+    "act": 36064.0,
+    "bias": 0.002856033717834938
+   },
+   {
+    "year": 2025,
+    "category": "Milk",
+    "fc": 74044.0,
+    "act": 80641.0,
+    "bias": -0.08180702124229611
+   },
+   {
+    "year": 2026,
+    "category": "Milk",
+    "fc": 108352.0,
+    "act": 117297.0,
+    "bias": -0.07625940987408031
+   },
+   {
+    "year": 2025,
+    "category": "Yogurt",
+    "fc": 127807.0,
+    "act": 107278.0,
+    "bias": 0.19136262793862668
+   },
+   {
+    "year": 2026,
+    "category": "Yogurt",
+    "fc": 66524.0,
+    "act": 56021.0,
+    "bias": 0.18748326520411984
+   }
+  ],
+  "stockout_proxy": 0.0006398464368551547
+ },
+ "leak5_promo": {
+  "n": 61,
+  "measurable": 37,
+  "support_total": 1869103.0,
+  "incremental_gp": -4527.950697,
+  "net_return": -1873630.950697,
+  "paying_back": 0,
+  "avg_lift": -0.11596360647455517,
+  "median_lift": -0.12172284644194747,
+  "stated_discount_avg": 0.09475409836065572,
+  "applied_discount_avg": 0.0364793,
+  "p9999": [
+   {
+    "promotion_key": 9999,
+    "product_key": 1022,
+    "region_key": 1,
+    "promotion_type": "Deep Discount",
+    "promo_days": 61,
+    "discount_pct": 0.25,
+    "discount_applied_on_invoice": 0.25,
+    "support_cost": 120000.0,
+    "promo_units": 367,
+    "baseline_units": 367.0892857142857,
+    "incremental_units": -0.0892857142857224,
+    "volume_lift_pct": -0.0002432261516758503,
+    "promo_net_sales": 7784.07,
+    "promo_gp": 414.71,
+    "baseline_gp": 2627.542304,
+    "incremental_gp": -2212.832304,
+    "net_promo_return": -122212.832304,
+    "promo_roi": -1.01844,
+    "baseline_measurable": true
+   }
+  ],
+  "promoted_revenue_share": [
+   {
+    "year": 2026,
+    "promo_share": 0.006690541357745997
+   },
+   {
+    "year": 2025,
+    "promo_share": 0.007578714264615353
+   }
+  ],
+  "support_vs_gp_pct": 0.3616837792396054
+ },
+ "returns": [
+  {
+   "year": 2025,
+   "rv": 59113.74
+  },
+  {
+   "year": 2026,
+   "rv": 47115.71
+  }
+ ],
+ "return_rate_total": 0.005543420225318441,
+ "target_attainment": 0.04170384841714729,
+ "dq": [
+  {
+   "rule_id": "CRM-01",
+   "rule": "CRM CustomerID stored as float text",
+   "severity": "Low",
+   "violations": 170
+  },
+  {
+   "rule_id": "CRM-02",
+   "rule": "CRM account missing ERP CustomerID (matched by name)",
+   "severity": "Medium",
+   "violations": 10
+  },
+  {
+   "rule_id": "CRM-03",
+   "rule": "Open opportunity past expected close date",
+   "severity": "Low",
+   "violations": 359
+  },
+  {
+   "rule_id": "CUS-01",
+   "rule": "Duplicate customer (same name, different case/ID)",
+   "severity": "High",
+   "violations": 8
+  },
+  {
+   "rule_id": "CUS-02",
+   "rule": "Sales territory prefix shared by multiple regions",
+   "severity": "Low",
+   "violations": 1
+  },
+  {
+   "rule_id": "DST-01",
+   "rule": "Distributor SKU not in agreed D-#### format",
+   "severity": "Medium",
+   "violations": 1308
+  },
+  {
+   "rule_id": "DST-02",
+   "rule": "Inventory roll-forward does not balance (opening+receipts-sellout<>closing)",
+   "severity": "Medium",
+   "violations": 2718
+  },
+  {
+   "rule_id": "DST-03",
+   "rule": "Distributor-reported sell-out <> sum of outlet sell-out",
+   "severity": "Medium",
+   "violations": 2820
+  },
+  {
+   "rule_id": "HR-01",
+   "rule": "Payroll paid before employee hire date",
+   "severity": "High",
+   "violations": 112
+  },
+  {
+   "rule_id": "INV-01",
+   "rule": "Available <> OnHand - Reserved",
+   "severity": "Medium",
+   "violations": 12048
+  },
+  {
+   "rule_id": "INV-02",
+   "rule": "Negative quantity on hand",
+   "severity": "High",
+   "violations": 8
+  },
+  {
+   "rule_id": "INV-03",
+   "rule": "Near-expiry stock (<=3 days) still status 'Available'",
+   "severity": "Medium",
+   "violations": 1345
+  },
+  {
+   "rule_id": "RET-01",
+   "rule": "Return dated after last available sales date",
+   "severity": "Low",
+   "violations": 22
+  },
+  {
+   "rule_id": "RET-02",
+   "rule": "Return references invoice not (yet) in sales",
+   "severity": "Medium",
+   "violations": 88
+  },
+  {
+   "rule_id": "SAL-01",
+   "rule": "Non-standard region label on invoice line",
+   "severity": "Medium",
+   "violations": 185
+  },
+  {
+   "rule_id": "SAL-02",
+   "rule": "Invoice booked to a duplicate customer ID",
+   "severity": "High",
+   "violations": 819
+  },
+  {
+   "rule_id": "SAL-04",
+   "rule": "COGS deviates from Qty x StandardCost (stale standard cost)",
+   "severity": "High",
+   "violations": 14544
+  }
+ ],
+ "ml": {
+  "wape_ml": 0.05785872571696618,
+  "wape_mrp": 0.09920256215324394,
+  "wape_naive": 0.11129083566525942,
+  "wape_rule": 0.05886698046573821,
+  "bias_ml": -0.00013479341561123423,
+  "bias_mrp": 0.005073624163606856,
+  "months": 6,
+  "rebalancing": [
+   {
+    "action": "Reduce / redeploy",
+    "n": 141,
+    "gap_value": 1489859.0159404182
+   },
+   {
+    "action": "Hold",
+    "n": 3,
+    "gap_value": 7403.693392914705
+   }
+  ],
+  "by_category": {
+   "Cheese": {
+    "ml": 0.054794004669729605,
+    "mrp": 0.052496798975672214,
+    "rule": 0.06695789711531219
+   },
+   "Juice": {
+    "ml": 0.05699803077820728,
+    "mrp": 0.04872000583473124,
+    "rule": 0.058383779447159216
+   },
+   "Milk": {
+    "ml": 0.06351791530944625,
+    "mrp": 0.08663371897113332,
+    "rule": 0.059732674379422666
+   },
+   "Yogurt": {
+    "ml": 0.048465723100110686,
+    "mrp": 0.18736311612462614,
+    "rule": 0.05230435908908933
+   }
+  }
+ }
+}

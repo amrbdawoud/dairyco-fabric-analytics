@@ -1,0 +1,37 @@
+# 1. Architecture and technical decisions
+
+## 1.1 What was built (live in Microsoft Fabric)
+
+| Layer | Fabric item(s) | What it does |
+|---|---|---|
+| Landing | `lh_bronze/Files/landing/<source>/load_date=YYYY-MM-DD/` | Immutable drop zone for the five source systems (CSV "SQL extracts", JSONL "API feeds", CSV master files). One folder per delivery = replayable history. |
+| Bronze | `lh_bronze` + `nb_01_bronze_ingest` | Metadata-driven ingestion from `config/ingestion_config.json` (22 entities: source, format, table, load type, business key, sensitivity, owner). Schema-on-read (all strings), audit columns (`_source_file`, `_load_date`, `_batch_id`, `_ingested_at`), append-only, `_ingestion_log` makes re-runs idempotent. |
+| Silver | `lh_silver` + `nb_02_silver_transform` | Typed, conformed, de-duplicated. Region vocabulary conformed (9 labels → 6), duplicate customers mapped to a master, CRM float/blank IDs repaired, distributor SKUs mapped to ERP products. Sales loads **incrementally** (watermark + Delta `MERGE`). 17 DQ rules write to `dq_issues` / `dq_run_history`; rules that make numbers *wrong* stop the pipeline. |
+| Gold | `lh_gold` + `nb_03_gold_star_schema` | Kimball star schema: 9 conformed dimensions, 11 facts, promotion attribution, aggregated labour, DQ summary, RLS mapping table. V-Order enabled for Direct Lake reads. |
+| AI | `nb_05_ml_demand_forecast`, MLflow experiment `dairyco-demand-forecast`, registered model `dairyco-demand-forecast-hgb` | SKU × month demand model with rolling-origin backtest vs MRP forecast; writes forecasts and a stock-rebalancing recommendation to gold. |
+| Orchestration | Data pipeline `pl_dairyco_daily` | Bronze → Silver (DQ gate) → Gold → ML, `batch_id = pipeline RunId` threaded through every layer, 2 retries / 2-hour timeout per activity. |
+| Semantic model | `DairyCo Analytics` (Direct Lake on `lh_gold`) | 23 tables, 41 relationships, ~100 documented measures in display folders, time intelligence, dynamic RLS + OLS. Authored as TMDL (code) and deployed through the Fabric REST API. |
+| Report | `DairyCo Management` (3 pages) | Executive Performance, Commercial, Operations — bound live to the semantic model. |
+| ALM | `DairyCo_v2_Dev` → `DairyCo_v2_Prod`, GitHub repo | Dev/Prod workspaces, source in Git, deployment pipeline between stages. |
+
+## 1.2 Key decisions, alternatives and why
+
+| Decision | Chosen | Credible alternative | Why this choice here |
+|---|---|---|---|
+| Storage & compute | **Lakehouse + PySpark notebooks** (3 lakehouses) | Fabric Warehouse (T-SQL) for gold; Dataflow Gen2 for transforms | Sources include semi-structured JSONL and need MERGE, regex SKU mapping and DQ logging — Spark handles all in one engine. Warehouse is the right call if the BI team is T-SQL-first; gold could move there without changing the semantic layer. Dataflow Gen2 is low-code but harder to test, version and parameterise at 22 entities. |
+| Layer separation | **One lakehouse per layer** | One schema-enabled lakehouse with bronze/silver/gold schemas | A lakehouse is a security boundary: raw payroll never leaves bronze/silver, which only data engineers can read; business users get `lh_gold` via the semantic model only. Schemas are tidier but share one permission surface. |
+| Ingestion pattern | **Config-driven notebook + landing folders** | One Copy activity per source; Mirroring / shortcuts to source DBs | The files are extracts, so a landing zone mirrors how SFTP/API drops arrive. Adding a source = one JSON line, no code. In production, real ERP/CRM DBs would use **Fabric Mirroring** or Copy jobs into the same landing contract — nothing downstream changes. |
+| Incremental processing | **Watermark on `_ingested_at` + Delta MERGE on business key** (Sales); full-refresh for master/snapshot extracts | CDC via Mirroring; Materialized Lake Views with incremental refresh | Sales is the only high-volume, append-mostly entity; MERGE also absorbs late corrections. Demonstrated: initial load to 31 Jul 2026, then an August drop (3,723 lines) merged → 75,354 rows, watermark advanced, re-run is a no-op. Masters are small; full refresh is simpler and self-healing. |
+| Data quality | **Flag, don't fix** — `dq_issues` + history, hard gate only on value-breaking rules | Great Expectations / Purview DQ | The brief asks to document anomalies rather than silently correct business ambiguities. Duplicates are *mapped* (auditable) not deleted; relabelled regions keep the raw label. Blocking only `SAL-03` (net ≠ gross − discount) and `PRD-01` (actual ≠ good + scrap) avoids a pipeline that never runs. |
+| Model storage mode | **Direct Lake** | Import; DirectQuery | No scheduled refresh or data duplication; gold Delta tables (V-Ordered) are read directly and new data is picked up automatically. Import would be chosen for complex calculated columns or non-Fabric sources; DirectQuery only for true real-time. |
+| Model authoring | **TMDL generated from code, deployed via REST** | Power BI Desktop by hand | Every table/column/measure carries a description (feeds Copilot/data agents), names are consistent, and the model is diff-able in Git and re-deployable to any stage by one command. |
+| Security | **Dynamic RLS on `Region` + OLS on labour cost + labour aggregated before gold** | Static role per region; RLS in the SQL endpoint | One role serves all regional managers via a mapping table (production: synced from Entra ID groups). Payroll protection is layered: employee pay never reaches gold (min. cell size 5), cost columns are object-level secured for regional users, silver/bronze are restricted workspaces/lakehouses. |
+| AI | **Gradient-boosted trees, MLflow tracked, batch scoring into gold** | Prophet/ETS per SKU; Azure ML AutoML | 24 SKUs × 20 months is too short for per-series statistical models to beat a pooled model; a pooled tree model learns cross-SKU patterns. MLflow in Fabric gives lineage and model registry at no extra cost. |
+| Capacity | **F2** (dev/demo) | F64 for production | 11 MB of data runs comfortably on F2 starter pools. Production with daily loads, several hundred report users and Copilot would be sized at F64 (also removes the need for Pro licences for viewers). |
+
+## 1.3 Grain, keys and conformed dimensions
+
+* All keys are integers; dates join on `date_key` (yyyymmdd). Month-grain facts (targets, forecast, production, labour, distributor) use the first day of the month, so every fact shares the one `Date` dimension.
+* `Region` is conformed across Sales, Returns, Targets, Promotions, Inventory, Distributor, CRM and ML rebalancing and is the RLS anchor. Region *names* are denormalised onto Customer/Distributor/Warehouse instead of relating those dimensions to `Region`, which would create ambiguous filter paths.
+* `Production Unit` (plant × line × shift) is conformed between production orders and aggregated labour, which is what allows scrap, downtime, overtime and absence to be compared cell by cell.
+* Targets are at month × region × category; the category link to `Product` is virtual (`TREATAS`) so no bridge table is needed.

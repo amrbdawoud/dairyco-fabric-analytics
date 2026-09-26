@@ -1,0 +1,282 @@
+{
+ "entities": [
+  {
+   "source": "erp",
+   "file": "Sales.csv",
+   "format": "csv",
+   "bronze_table": "erp_sales",
+   "load_type": "incremental",
+   "business_key": [
+    "InvoiceID"
+   ],
+   "sensitivity": "internal",
+   "owner": "Finance/Commercial IT"
+  },
+  {
+   "source": "erp",
+   "file": "SalesReturns.csv",
+   "format": "csv",
+   "bronze_table": "erp_sales_returns",
+   "load_type": "full",
+   "business_key": [
+    "ReturnID"
+   ],
+   "sensitivity": "internal",
+   "owner": "Finance/Commercial IT"
+  },
+  {
+   "source": "erp",
+   "file": "Customers.csv",
+   "format": "csv",
+   "bronze_table": "erp_customers",
+   "load_type": "full",
+   "business_key": [
+    "CustomerID"
+   ],
+   "sensitivity": "internal",
+   "owner": "Finance/Commercial IT"
+  },
+  {
+   "source": "erp",
+   "file": "Products.csv",
+   "format": "csv",
+   "bronze_table": "erp_products",
+   "load_type": "full",
+   "business_key": [
+    "ProductID"
+   ],
+   "sensitivity": "internal",
+   "owner": "Finance/Commercial IT"
+  },
+  {
+   "source": "erp",
+   "file": "Distributors.csv",
+   "format": "csv",
+   "bronze_table": "erp_distributors",
+   "load_type": "full",
+   "business_key": [
+    "DistributorID"
+   ],
+   "sensitivity": "internal",
+   "owner": "Finance/Commercial IT"
+  },
+  {
+   "source": "erp",
+   "file": "Warehouses.csv",
+   "format": "csv",
+   "bronze_table": "erp_warehouses",
+   "load_type": "full",
+   "business_key": [
+    "WarehouseID"
+   ],
+   "sensitivity": "internal",
+   "owner": "Finance/Commercial IT"
+  },
+  {
+   "source": "erp",
+   "file": "Promotions.csv",
+   "format": "csv",
+   "bronze_table": "erp_promotions",
+   "load_type": "full",
+   "business_key": [
+    "PromotionID"
+   ],
+   "sensitivity": "internal",
+   "owner": "Finance/Commercial IT"
+  },
+  {
+   "source": "erp",
+   "file": "SalesTargets.csv",
+   "format": "csv",
+   "bronze_table": "erp_sales_targets",
+   "load_type": "full",
+   "business_key": [
+    "Month",
+    "Region",
+    "Category"
+   ],
+   "sensitivity": "internal",
+   "owner": "Finance/Commercial IT"
+  },
+  {
+   "source": "erp",
+   "file": "InventorySnapshots.csv",
+   "format": "csv",
+   "bronze_table": "wms_inventory_snapshots",
+   "load_type": "full",
+   "business_key": [
+    "SnapshotDate",
+    "WarehouseID",
+    "ProductID",
+    "BatchID"
+   ],
+   "sensitivity": "internal",
+   "owner": "Finance/Commercial IT"
+  },
+  {
+   "source": "crm",
+   "file": "Accounts.csv",
+   "format": "csv",
+   "bronze_table": "crm_accounts",
+   "load_type": "full",
+   "business_key": [
+    "SFAccountID"
+   ],
+   "sensitivity": "internal",
+   "owner": "Sales Ops"
+  },
+  {
+   "source": "crm",
+   "file": "Opportunities.csv",
+   "format": "csv",
+   "bronze_table": "crm_opportunities",
+   "load_type": "full",
+   "business_key": [
+    "OpportunityID"
+   ],
+   "sensitivity": "internal",
+   "owner": "Sales Ops"
+  },
+  {
+   "source": "crm",
+   "file": "Activities.csv",
+   "format": "csv",
+   "bronze_table": "crm_activities",
+   "load_type": "full",
+   "business_key": [
+    "ActivityID"
+   ],
+   "sensitivity": "internal",
+   "owner": "Sales Ops"
+  },
+  {
+   "source": "distributor",
+   "file": "SellOut.jsonl",
+   "format": "jsonl",
+   "bronze_table": "dist_sellout",
+   "load_type": "full",
+   "business_key": [
+    "transaction_month",
+    "distributor_id",
+    "distributor_sku",
+    "outlet_code"
+   ],
+   "sensitivity": "internal",
+   "owner": "Channel Sales"
+  },
+  {
+   "source": "distributor",
+   "file": "DistributorInventory.jsonl",
+   "format": "jsonl",
+   "bronze_table": "dist_inventory",
+   "load_type": "full",
+   "business_key": [
+    "month",
+    "distributor_id",
+    "distributor_sku"
+   ],
+   "sensitivity": "internal",
+   "owner": "Channel Sales"
+  },
+  {
+   "source": "distributor",
+   "file": "Outlets.csv",
+   "format": "csv",
+   "bronze_table": "dist_outlets",
+   "load_type": "full",
+   "business_key": [
+    "OutletID"
+   ],
+   "sensitivity": "internal",
+   "owner": "Channel Sales"
+  },
+  {
+   "source": "mrp",
+   "file": "DemandForecast.csv",
+   "format": "csv",
+   "bronze_table": "mrp_demand_forecast",
+   "load_type": "full",
+   "business_key": [
+    "Month",
+    "ProductID"
+   ],
+   "sensitivity": "internal",
+   "owner": "Supply Chain"
+  },
+  {
+   "source": "mrp",
+   "file": "ProductionOrders.csv",
+   "format": "csv",
+   "bronze_table": "mrp_production_orders",
+   "load_type": "full",
+   "business_key": [
+    "ProductionOrderID"
+   ],
+   "sensitivity": "internal",
+   "owner": "Supply Chain"
+  },
+  {
+   "source": "mrp",
+   "file": "Downtime.csv",
+   "format": "csv",
+   "bronze_table": "mrp_downtime",
+   "load_type": "full",
+   "business_key": [
+    "ProductionOrderID"
+   ],
+   "sensitivity": "internal",
+   "owner": "Supply Chain"
+  },
+  {
+   "source": "mrp",
+   "file": "MaterialRequirements.csv",
+   "format": "csv",
+   "bronze_table": "mrp_material_requirements",
+   "load_type": "full",
+   "business_key": [
+    "ProductionOrderID",
+    "RawMaterialID"
+   ],
+   "sensitivity": "internal",
+   "owner": "Supply Chain"
+  },
+  {
+   "source": "hr",
+   "file": "Employees.csv",
+   "format": "csv",
+   "bronze_table": "hr_employees",
+   "load_type": "full",
+   "business_key": [
+    "EmployeeID"
+   ],
+   "sensitivity": "restricted",
+   "owner": "HR"
+  },
+  {
+   "source": "hr",
+   "file": "Attendance.csv",
+   "format": "csv",
+   "bronze_table": "hr_attendance",
+   "load_type": "full",
+   "business_key": [
+    "EmployeeID",
+    "Month"
+   ],
+   "sensitivity": "restricted",
+   "owner": "HR"
+  },
+  {
+   "source": "hr",
+   "file": "Payroll.csv",
+   "format": "csv",
+   "bronze_table": "hr_payroll",
+   "load_type": "full",
+   "business_key": [
+    "EmployeeID",
+    "Month"
+   ],
+   "sensitivity": "restricted",
+   "owner": "HR"
+  }
+ ]
+}

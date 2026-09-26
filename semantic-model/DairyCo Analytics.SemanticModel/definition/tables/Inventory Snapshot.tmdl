@@ -1,0 +1,149 @@
+/// Weekly (Sunday) warehouse stock by batch. Semi-additive: stock measures take the latest snapshot in context.
+/// Near-expiry = 25% or less of shelf life remaining (business assumption).
+table 'Inventory Snapshot'
+
+	/// Units on hand at the latest snapshot in context (semi-additive).
+	measure 'Inventory Units' = ```
+			VAR _k = CALCULATE(MAX('Inventory Snapshot'[Date Key]))
+			RETURN CALCULATE(SUM('Inventory Snapshot'[Qty On Hand]), 'Inventory Snapshot'[Date Key] = _k)
+			```
+		formatString: #,##0
+		displayFolder: Inventory
+
+	/// Stock on hand at standard cost, latest snapshot in context; EGP.
+	measure 'Inventory Value' = ```
+			VAR _k = CALCULATE(MAX('Inventory Snapshot'[Date Key]))
+			RETURN CALCULATE(SUM('Inventory Snapshot'[Stock Value]), 'Inventory Snapshot'[Date Key] = _k)
+			```
+		formatString: #,##0
+		displayFolder: Inventory
+
+	/// Stock with 25% or less of shelf life left at the latest snapshot, at standard cost.
+	measure 'Near-Expiry Stock Value' = ```
+			VAR _k = CALCULATE(MAX('Inventory Snapshot'[Date Key]))
+			RETURN CALCULATE(SUM('Inventory Snapshot'[Stock Value]), 'Inventory Snapshot'[Date Key] = _k, 'Inventory Snapshot'[Is Near Expiry] = TRUE())
+			```
+		formatString: #,##0
+		displayFolder: Inventory
+
+	/// Share of stock value close to expiry.
+	measure 'Near-Expiry Stock %' = DIVIDE([Near-Expiry Stock Value], [Inventory Value])
+		formatString: 0.0%
+		displayFolder: Inventory
+
+	/// Average near-expiry stock value per weekly snapshot across the period - the recurring exposure.
+	measure 'Average Near-Expiry Stock Value' = ```
+			AVERAGEX(VALUES('Inventory Snapshot'[Date Key]),
+			    CALCULATE(SUM('Inventory Snapshot'[Stock Value]), 'Inventory Snapshot'[Is Near Expiry] = TRUE()))
+			```
+		formatString: #,##0
+		displayFolder: Inventory
+
+	/// Latest stock / average daily units sold in the period. CAVEAT: warehouse stock and invoice volume look to be
+	/// on different scales.
+	measure 'Days of Cover' = ```
+			VAR _units = [Inventory Units]
+			VAR _days = CALCULATE(COUNTROWS('Date'), 'Date'[Is Actuals Period] = TRUE())
+			VAR _daily = DIVIDE(CALCULATE([Sales Volume], 'Date'[Is Actuals Period] = TRUE()), _days)
+			RETURN DIVIDE(_units, _daily)
+			```
+		formatString: #,##0.0
+		displayFolder: Inventory
+
+	/// PROXY, not a true stockout rate: share of warehouse x SKU x week snapshots with zero available stock. A real
+	/// measure needs order lines (requested vs fulfilled) and daily/outlet stock.
+	measure 'Stockout Proxy %' = ```
+			DIVIDE(
+			    CALCULATE(COUNTROWS('Inventory Snapshot'), 'Inventory Snapshot'[Is Zero Available] = TRUE()),
+			    COUNTROWS('Inventory Snapshot'))
+			```
+		formatString: 0.00%
+		displayFolder: Inventory
+
+	column 'Date Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: date_key
+
+	column 'Warehouse Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: warehouse_key
+
+	column 'Product Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: product_key
+
+	column 'Region Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: region_key
+
+	column Batch
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: batch_id
+
+	column 'Qty On Hand'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: qty_on_hand
+
+	column 'Qty Reserved'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: qty_reserved
+
+	column 'Qty Available'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: qty_available_calc
+
+	column 'Qty Available Reported'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: qty_available_reported
+
+	column 'Days To Expiry'
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: days_to_expiry
+
+	column 'Remaining Shelf Life'
+		dataType: double
+		formatString: 0%
+		summarizeBy: none
+		sourceColumn: remaining_shelf_life_pct
+
+	column 'Is Near Expiry'
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: is_near_expiry
+
+	column 'Stock Value'
+		dataType: decimal
+		isHidden
+		summarizeBy: none
+		sourceColumn: stock_value_std
+
+	column 'Is Zero Available'
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: is_zero_available
+
+	partition 'Inventory Snapshot' = entity
+		mode: directLake
+		source
+			entityName: fact_inventory_snapshot
+			expressionSource: 'DirectLake - Gold'
+
