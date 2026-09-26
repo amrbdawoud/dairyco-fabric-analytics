@@ -15,7 +15,6 @@ An end-to-end Microsoft Fabric implementation for the DairyCo BI Consultant case
 | `report/DairyCo Management.Report/` | 3-page report definition (PBIP; opens in Power BI Desktop together with the model folder) |
 | `scripts/` | Deploy tooling: `fabric.py` (deploy/run notebooks and pipelines, fetch logs), `upload_landing.py`, `deploy_pipeline.py`, `build_model.py` (TMDL generator and deploy), `build_report.py`, `findings.py` (recomputes every figure from gold), `olq.py` (read gold Delta tables locally) |
 | `docs/` | Architecture and decisions, EDA and DQ, security and production readiness, AI, explainer briefs and Q&A, `findings_numbers.json` |
-| `fabric/` | Workspace items as serialised by Fabric Git integration |
 
 ## Reproduce
 
