@@ -1,10 +1,10 @@
 """Regenerate the DairyCo Direct Lake semantic model's TMDL inside the Git-synced workspace folder.
 
-    python build_model.py        # rewrite DairyCo Analytics.SemanticModel/definition/ (repo root)
+    python build_model.py        # rewrite fabric/DairyCo Analytics.SemanticModel/definition/
 
 The model is defined here as data (tables, columns, measures, relationships, roles) so every object carries
 a description and naming stays consistent. The output lands in the item folder that the Dev workspace syncs through
-Fabric Git integration (the repo root): commit it, open a pull request, and after merge click Update in the Dev workspace.
+Fabric Git integration (Git folder: fabric): commit it, open a pull request, and after merge click Update in the Dev workspace.
 
 Only the files this script owns are rewritten (model, relationships, tables, roles). Fabric's own files
 (.platform, definition.pbism, cultures, diagram layout) and the stage-specific Direct Lake binding in
@@ -14,7 +14,7 @@ import json, pathlib, shutil, sys, textwrap
 
 MODEL_NAME = "DairyCo Analytics"
 REPO = pathlib.Path(__file__).resolve().parents[1]
-ROOT = REPO / f"{MODEL_NAME}.SemanticModel"
+ROOT = REPO / "fabric" / f"{MODEL_NAME}.SemanticModel"
 SCHEMA = REPO / "config" / "gold_schema.json"
 TYPE = {"integer": "int64", "long": "int64", "string": "string", "boolean": "boolean", "date": "dateTime",
         "timestamp": "dateTime", "decimal": "decimal", "double": "double"}
@@ -457,7 +457,7 @@ def render_table(t, schema):
 def build():
     if not (ROOT / ".platform").exists():
         sys.exit(f"{ROOT} is not a Fabric-synced item folder (no .platform). Connect the Dev workspace to Git "
-                 "and commit it first.")
+                 "(folder: fabric) and commit it first.")
     schema = json.loads(SCHEMA.read_text())
     d = ROOT / "definition"
     for owned in ("tables", "roles"):          # fully generated: remove so dropped tables/roles disappear

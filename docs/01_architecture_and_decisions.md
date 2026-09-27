@@ -10,9 +10,9 @@
 | Gold | `lh_gold` + `nb_03_gold_star_schema` | Kimball star schema: 9 conformed dimensions, 11 facts, promotion attribution, aggregated labour, DQ summary, RLS mapping table. V-Order enabled for Direct Lake reads. |
 | AI | `nb_05_ml_demand_forecast`, MLflow experiment `dairyco-demand-forecast`, registered model `dairyco-demand-forecast-hgb` | SKU × month demand model with rolling-origin backtest vs MRP forecast; writes forecasts and a stock-rebalancing recommendation to gold. |
 | Orchestration | Data pipeline `pl_dairyco_daily` | Bronze → Silver (DQ gate) → Gold → ML, `batch_id = pipeline RunId` threaded through every layer, 2 retries / 2-hour timeout per activity. |
-| Semantic model | `DairyCo Analytics` (Direct Lake on `lh_gold`) | 23 tables, 43 relationships, 95 documented measures in display folders, time intelligence, dynamic RLS + OLS. Defined as code (`scripts/build_model.py`) and versioned as TMDL in the repo through Fabric Git integration. |
+| Semantic model | `DairyCo Analytics` (Direct Lake on `lh_gold`) | 23 tables, 43 relationships, 95 documented measures in display folders, time intelligence, dynamic RLS + OLS. Defined as code (`scripts/build_model.py`) and versioned as TMDL in `fabric/` through Fabric Git integration. |
 | Report | `DairyCo Management` (3 pages) | Executive Performance, Commercial, Operations — bound live to the semantic model. |
-| ALM | `DairyCo_v2_Dev` → `DairyCo_v2_Prod`, GitHub repo, deployment pipeline `DairyCo v2 ALM` | Dev is connected to the repo (root folder) by Fabric Git integration (feature branch → PR → merge → Update Dev); the deployment pipeline promotes Dev → Prod. Prod is never edited by hand. |
+| ALM | `DairyCo_v2_Dev` → `DairyCo_v2_Prod`, GitHub repo, deployment pipeline `DairyCo v2 ALM` | Dev is connected to the repo's `fabric/` folder by Fabric Git integration (feature branch → PR → merge → Update Dev); the deployment pipeline promotes Dev → Prod. Prod is never edited by hand. |
 
 ## 1.2 Key decisions, alternatives and why
 

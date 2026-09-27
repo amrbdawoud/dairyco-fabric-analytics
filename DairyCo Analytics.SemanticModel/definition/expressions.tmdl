@@ -1,7 +1,0 @@
-/// Direct Lake connection to the gold lakehouse. Rebound per stage by the deployment script / deployment rules.
-expression 'DirectLake - Gold' =
-		let
-		    Source = AzureStorage.DataLake("https://onelake.dfs.fabric.microsoft.com/13f3caf0-07d5-45b6-aba0-319b493a9692/e874ccb7-c908-445a-9469-181d36b50b7b", [HierarchicalNavigation=true])
-		in
-		    Source
-

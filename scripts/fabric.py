@@ -5,7 +5,7 @@
     python fabric.py pipeline <workspace_name> <pipeline_name>
     python fabric.py logs     <workspace_name> <notebook_name>
 
-Item definitions are not deployed from here: they live in the item folders at the repo root (Fabric Git integration) and are promoted
+Item definitions are not deployed from here: they live in fabric/ (Fabric Git integration) and are promoted
 Dev -> Prod by the deployment pipeline. This helper runs jobs, waits for them and fetches Spark driver errors.
 """
 import json, sys, time

@@ -1,6 +1,6 @@
 # 6. Semantic model reference: DairyCo Analytics
 
-Direct Lake on `lh_gold`. It is defined in `scripts/build_model.py` and versioned as TMDL in `DairyCo Analytics.SemanticModel/` through Fabric Git integration. It has 23 tables, 43 relationships (all single-direction, many-to-one, integer keys), 95 measures and 2 roles.
+Direct Lake on `lh_gold`. It is defined in `scripts/build_model.py` and versioned as TMDL in `fabric/DairyCo Analytics.SemanticModel/` through Fabric Git integration. It has 23 tables, 43 relationships (all single-direction, many-to-one, integer keys), 95 measures and 2 roles.
 
 ## 6.1 Tables and grain
 
