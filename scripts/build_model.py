@@ -1,16 +1,21 @@
-"""Generate the DairyCo Direct Lake semantic model as TMDL (PBIP layout) and optionally deploy it.
+"""Regenerate the DairyCo Direct Lake semantic model's TMDL inside the Git-synced workspace folder.
 
-    python build_model.py                       # write semantic-model/DairyCo Analytics.SemanticModel/
-    python build_model.py deploy <workspace>    # write + create/update the model in that workspace
+    python build_model.py        # rewrite DairyCo Analytics.SemanticModel/definition/ (repo root)
 
 The model is defined here as data (tables, columns, measures, relationships, roles) so every object carries
-a description and naming stays consistent. The generated TMDL is what is committed to Git.
+a description and naming stays consistent. The output lands in the item folder that the Dev workspace syncs through
+Fabric Git integration (the repo root): commit it, open a pull request, and after merge click Update in the Dev workspace.
+
+Only the files this script owns are rewritten (model, relationships, tables, roles). Fabric's own files
+(.platform, definition.pbism, cultures, diagram layout) and the stage-specific Direct Lake binding in
+expressions.tmdl are left as Fabric wrote them. Run it only after the workspace has been synced to Git.
 """
-import base64, json, pathlib, sys, textwrap
-sys.path.insert(0, str(pathlib.Path(__file__).parent))
+import json, pathlib, shutil, sys, textwrap
 
 MODEL_NAME = "DairyCo Analytics"
-ROOT = pathlib.Path(__file__).resolve().parents[1] / "semantic-model" / f"{MODEL_NAME}.SemanticModel"
+REPO = pathlib.Path(__file__).resolve().parents[1]
+ROOT = REPO / f"{MODEL_NAME}.SemanticModel"
+SCHEMA = REPO / "config" / "gold_schema.json"
 TYPE = {"integer": "int64", "long": "int64", "string": "string", "boolean": "boolean", "date": "dateTime",
         "timestamp": "dateTime", "decimal": "decimal", "double": "double"}
 FMT = {"egp": "#,##0", "egp2": "#,##0.00", "int": "#,##0", "pct": "0.0%", "pct2": "0.00%", "dec1": "#,##0.0",
@@ -421,7 +426,7 @@ def render_table(t, schema):
         out += desc_lines(m["desc"], "\t")
         if "\n" in m["expr"]:
             body = textwrap.indent(m["expr"], "\t\t\t")
-            out += f"\tmeasure {q(m['name'])} = ```\n{body}\n\t\t\t```\n"
+            out += f"\tmeasure {q(m['name'])} =\n{body}\n"
         else:
             out += f"\tmeasure {q(m['name'])} = {m['expr']}\n"
         out += f"\t\tformatString: {m['fmt']}\n\t\tdisplayFolder: {m['folder']}\n\n"
@@ -438,9 +443,10 @@ def render_table(t, schema):
             out += "\t\tsummarizeBy: none\n"
         if c.get("dataCategory"):
             out += f"\t\tdataCategory: {c['dataCategory']}\n"
+        out += f"\t\tsourceColumn: {c['src']}\n"
         if c.get("sort"):
             out += f"\t\tsortByColumn: {q(c['sort'])}\n"
-        out += f"\t\tsourceColumn: {c['src']}\n\n"
+        out += "\n"
     for hname, levels in t.get("hierarchies", []):
         out += f"\thierarchy {q(hname)}\n\n"
         for lv in levels:
@@ -448,64 +454,38 @@ def render_table(t, schema):
     out += f"\tpartition {q(t['name'])} = entity\n\t\tmode: directLake\n\t\tsource\n\t\t\tentityName: {t['entity']}\n\t\t\texpressionSource: 'DirectLake - Gold'\n\n"
     return out
 
-def build(ws_id, lh_id):
-    import shutil
-    schema = json.loads((pathlib.Path(__file__).resolve().parents[1] / "semantic-model" / "gold_schema.json").read_text())
-    if ROOT.exists():
-        shutil.rmtree(ROOT)
-    (ROOT / "definition" / "tables").mkdir(parents=True)
-    (ROOT / "definition" / "roles").mkdir()
+def build():
+    if not (ROOT / ".platform").exists():
+        sys.exit(f"{ROOT} is not a Fabric-synced item folder (no .platform). Connect the Dev workspace to Git "
+                 "and commit it first.")
+    schema = json.loads(SCHEMA.read_text())
+    d = ROOT / "definition"
+    for owned in ("tables", "roles"):          # fully generated: remove so dropped tables/roles disappear
+        shutil.rmtree(d / owned, ignore_errors=True)
+        (d / owned).mkdir(parents=True)
     files = {}
-    files["definition.pbism"] = json.dumps({"$schema": "https://developer.microsoft.com/json-schemas/fabric/item/semanticModel/definitionProperties/1.0.0/schema.json",
-                                           "version": "4.2", "settings": {"qnaEnabled": True}}, indent=2)
-    files["definition/database.tmdl"] = "database\n\tcompatibilityLevel: 1604\n\tcompatibilityMode: powerBI\n"
-    model = ("model Model\n\tculture: en-US\n\tdefaultPowerBIDataSourceVersion: powerBI_V3\n\tsourceQueryCulture: en-US\n"
-             "\tdiscourageImplicitMeasures\n\n\tannotation __PBI_TimeIntelligenceEnabled = 0\n\n")
+    model = ("model Model\n\tculture: en-US\n\tdefaultPowerBIDataSourceVersion: powerBI_V3\n\tdiscourageImplicitMeasures\n"
+             "\tsourceQueryCulture: en-US\n\nannotation __PBI_TimeIntelligenceEnabled = 0\n\n")
     model += "".join(f"ref table {q(t['name'])}\n" for t in TABLES) + "\n"
     model += "".join(f"ref role {q(r)}\n" for r in ROLES) + "\n"
-    files["definition/model.tmdl"] = model
-    files["definition/expressions.tmdl"] = (
-        "/// Direct Lake connection to the gold lakehouse. Rebound per stage by the deployment script / deployment rules.\n"
-        "expression 'DirectLake - Gold' =\n\t\tlet\n"
-        f"\t\t    Source = AzureStorage.DataLake(\"https://onelake.dfs.fabric.microsoft.com/{ws_id}/{lh_id}\", [HierarchicalNavigation=true])\n"
-        "\t\tin\n\t\t    Source\n")
+    files["model.tmdl"] = model
     rel = ""
     for f_t, f_c, t_t, t_c in REL:
         rel += f"relationship '{f_t} to {t_t} ({f_c})'\n\tfromColumn: {q(f_t)}.{q(f_c)}\n\ttoColumn: {q(t_t)}.{q(t_c)}\n\n"
-    files["definition/relationships.tmdl"] = rel
+    files["relationships.tmdl"] = rel
     for t in TABLES:
-        files[f"definition/tables/{t['name']}.tmdl"] = render_table(t, schema)
+        files[f"tables/{t['name']}.tmdl"] = render_table(t, schema)
     for r, spec in ROLES.items():
         s = desc_lines(spec["desc"], "") + f"role {q(r)}\n\tmodelPermission: read\n\n"
         for tb, expr in spec["perms"].items():
             s += f"\ttablePermission {q(tb)} = {expr}\n\n"
         for tb, cols in spec.get("ols", {}).items():
             s += f"\ttablePermission {q(tb)}\n\n" + "".join(f"\t\tcolumnPermission {q(c)} = none\n\n" for c in cols)
-        files[f"definition/roles/{r}.tmdl"] = s
-    for p, content in files.items():
-        (ROOT / p).parent.mkdir(parents=True, exist_ok=True)
-        (ROOT / p).write_text(content)
+        files[f"roles/{r}.tmdl"] = s
+    for rel_path, content in files.items():
+        (d / rel_path).write_text(content)
     n_m = sum(len(t["measures"]) for t in TABLES)
-    print(f"wrote {len(files)} files: {len(TABLES)} tables, {len(REL)} relationships, {n_m} measures, {len(ROLES)} roles -> {ROOT}")
-    return files
-
-def deploy(ws_name):
-    from fabric import workspace_id, item_id, call, lro
-    ws = workspace_id(ws_name)
-    lh = item_id(ws, "lh_gold", "Lakehouse")
-    files = build(ws, lh)
-    parts = [{"path": p, "payload": base64.b64encode(c.encode()).decode(), "payloadType": "InlineBase64"} for p, c in files.items()]
-    sid = item_id(ws, MODEL_NAME, "SemanticModel")
-    if sid:
-        lro(call("POST", f"/workspaces/{ws}/semanticModels/{sid}/updateDefinition", {"definition": {"format": "TMDL", "parts": parts}}))
-        print("updated", sid)
-    else:
-        lro(call("POST", f"/workspaces/{ws}/semanticModels", {"displayName": MODEL_NAME, "description": "DairyCo enterprise semantic model (Direct Lake on lh_gold)",
-                                                             "definition": {"format": "TMDL", "parts": parts}}))
-        print("created", item_id(ws, MODEL_NAME, "SemanticModel"))
+    print(f"wrote {len(files)} files: {len(TABLES)} tables, {len(REL)} relationships, {n_m} measures, {len(ROLES)} roles -> {d}")
 
 if __name__ == "__main__":
-    if len(sys.argv) > 2 and sys.argv[1] == "deploy":
-        deploy(sys.argv[2])
-    else:
-        build("<workspace-id>", "<lakehouse-id>")
+    build()

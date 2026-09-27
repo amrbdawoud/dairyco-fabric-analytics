@@ -1,5 +1,0 @@
-{
-  "version": "1.0",
-  "artifacts": [{"report": {"path": "report/DairyCo Management.Report"}}],
-  "settings": {"enableAutoRecovery": true}
-}

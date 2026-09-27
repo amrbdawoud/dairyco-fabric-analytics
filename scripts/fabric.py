@@ -1,13 +1,14 @@
-"""Minimal Fabric REST helper used to deploy and run the DairyCo notebooks from a workstation.
+"""Minimal Fabric REST helper for operating the DairyCo workspaces from a workstation.
 
-    python fabric.py deploy <workspace_name> <src.py> [<default_lakehouse_name>]
-    python fabric.py run    <workspace_name> <notebook_name> [--params '{"k": "v"}']
-    python fabric.py items  <workspace_name>
+    python fabric.py items    <workspace_name>
+    python fabric.py run      <workspace_name> <notebook_name> [--params '{"k": "v"}']
+    python fabric.py pipeline <workspace_name> <pipeline_name>
+    python fabric.py logs     <workspace_name> <notebook_name>
 
-Notebook sources are plain Python files with `# %%` cell separators (`# %% [markdown]` for markdown
-cells). They are converted to .ipynb with the default-lakehouse binding at deploy time.
+Item definitions are not deployed from here: they live in the item folders at the repo root (Fabric Git integration) and are promoted
+Dev -> Prod by the deployment pipeline. This helper runs jobs, waits for them and fetches Spark driver errors.
 """
-import base64, json, pathlib, sys, time
+import json, sys, time
 import requests
 from azure.identity import AzureCliCredential
 
@@ -67,58 +68,6 @@ def item_id(ws, name, type_):
     return m[0]["id"] if m else None
 
 
-def to_ipynb(src_text, ws, lh_name=None, lh_id=None):
-    cells, cur, kind, tags = [], [], "code", []
-
-    def flush():
-        while cur and not cur[-1].strip():
-            cur.pop()
-        if not cur:
-            return
-        lines = [l + "\n" for l in cur]
-        lines[-1] = lines[-1].rstrip("\n")
-        if kind == "markdown":
-            lines = [l[2:] if l.startswith("# ") else l.lstrip("#") for l in lines]
-            cells.append({"cell_type": "markdown", "metadata": {}, "source": lines})
-        else:
-            md = {"tags": list(tags)} if tags else {}
-            cells.append({"cell_type": "code", "metadata": md, "source": lines, "outputs": [], "execution_count": None})
-
-    for line in src_text.splitlines():
-        if line.startswith("# %%"):
-            flush(); cur = []
-            kind = "markdown" if "[markdown]" in line else "code"
-            tags = ["parameters"] if "[parameters]" in line else []
-        else:
-            cur.append(line)
-    flush()
-    meta = {"language_info": {"name": "python"},
-            "kernel_info": {"name": "synapse_pyspark"},
-            "kernelspec": {"name": "synapse_pyspark", "display_name": "Synapse PySpark"}}
-    if lh_name:
-        meta["dependencies"] = {"lakehouse": {"default_lakehouse": lh_id, "default_lakehouse_name": lh_name,
-                                              "default_lakehouse_workspace_id": ws}}
-    return {"nbformat": 4, "nbformat_minor": 5, "metadata": meta, "cells": cells}
-
-
-def deploy(ws_name, src, lh_name=None):
-    ws = workspace_id(ws_name)
-    src = pathlib.Path(src)
-    name = src.stem
-    lh_id = item_id(ws, lh_name, "Lakehouse") if lh_name else None
-    nb = to_ipynb(src.read_text(), ws, lh_name, lh_id)
-    payload = base64.b64encode(json.dumps(nb).encode()).decode()
-    definition = {"format": "ipynb", "parts": [{"path": "notebook-content.ipynb", "payload": payload,
-                                                  "payloadType": "InlineBase64"}]}
-    nid = item_id(ws, name, "Notebook")
-    if nid:
-        lro(call("POST", f"/workspaces/{ws}/notebooks/{nid}/updateDefinition", {"definition": definition}))
-        print("updated", name, nid)
-    else:
-        lro(call("POST", f"/workspaces/{ws}/items", {"displayName": name, "type": "Notebook", "definition": definition}))
-        print("created", name, item_id(ws, name, "Notebook"))
-
-
 def run(ws_name, nb_name, params=None, timeout=3600):
     ws = workspace_id(ws_name)
     nid = item_id(ws, nb_name, "Notebook")
@@ -170,9 +119,7 @@ def run_pipeline(ws_name, name, params=None, timeout=5400):
 
 if __name__ == "__main__":
     cmd = sys.argv[1]
-    if cmd == "deploy":
-        deploy(sys.argv[2], sys.argv[3], sys.argv[4] if len(sys.argv) > 4 else None)
-    elif cmd == "run":
+    if cmd == "run":
         p = json.loads(sys.argv[5]) if len(sys.argv) > 5 and sys.argv[4] == "--params" else None
         run(sys.argv[2], sys.argv[3], p)
     elif cmd == "logs":
