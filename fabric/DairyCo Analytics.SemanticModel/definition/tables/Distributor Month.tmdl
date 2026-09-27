@@ -1,0 +1,165 @@
+/// Month x distributor x SKU: ERP sell-in, distributor-reported receipts, sell-out and closing stock. Distributor
+/// SKUs mapped to ERP products (UNKNOWN-#### recovered).
+table 'Distributor Month'
+
+	/// Units received by distributors (equals ERP sell-in).
+	measure 'Sell-in Units' = SUM('Distributor Month'[Receipts Qty])
+		formatString: #,##0
+		displayFolder: Distributors
+
+	/// Units distributors report selling to outlets.
+	measure 'Sell-out Units' = SUM('Distributor Month'[Sellout Qty Reported])
+		formatString: #,##0
+		displayFolder: Distributors
+
+	/// Outlet-level sell-out value at distributor prices.
+	measure 'Sell-out Value' = SUM('Distributor Month'[Sellout Value])
+		formatString: #,##0
+		displayFolder: Distributors
+
+	/// Sell-out / sell-in. Below ~85% (the peer norm) means stock is building in the channel.
+	measure 'Sell-through %' = DIVIDE([Sell-out Units], [Sell-in Units])
+		formatString: 0.0%
+		displayFolder: Distributors
+
+	/// Distributor closing stock at the latest month in context (semi-additive).
+	measure 'Distributor Stock Units' =
+			VAR _k = CALCULATE(MAX('Distributor Month'[Date Key]))
+			RETURN CALCULATE(SUM('Distributor Month'[Closing Inventory Qty]), 'Distributor Month'[Date Key] = _k)
+		formatString: #,##0
+		displayFolder: Distributors
+
+	/// Closing stock / that month's sell-out. Peers run at ~0.6 months.
+	measure 'Distributor Months of Cover' =
+			VAR _k = CALCULATE(MAX('Distributor Month'[Date Key]))
+			VAR _stock = [Distributor Stock Units]
+			VAR _sellout = CALCULATE([Sell-out Units], 'Distributor Month'[Date Key] = _k)
+			RETURN DIVIDE(_stock, _sellout)
+		formatString: #,##0.00
+		displayFolder: Distributors
+
+	/// Closing distributor stock valued at DairyCo's sell-in price, latest month in context.
+	measure 'Distributor Stock Value' =
+			VAR _k = CALCULATE(MAX('Distributor Month'[Date Key]))
+			RETURN SUMX(FILTER('Distributor Month', 'Distributor Month'[Date Key] = _k),
+			            'Distributor Month'[Closing Inventory Qty] * 'Distributor Month'[Sell In Unit Price])
+		formatString: #,##0
+		displayFolder: Distributors
+
+	/// Distributor stock above 0.6 months of cover (peer norm), at sell-in price - revenue pulled forward that must
+	/// still sell through.
+	measure 'Excess Channel Stock Value' =
+			VAR _k = CALCULATE(MAX('Distributor Month'[Date Key]))
+			VAR _benchmarkMonths = 0.6
+			RETURN SUMX(FILTER('Distributor Month', 'Distributor Month'[Date Key] = _k),
+			            MAX(0, 'Distributor Month'[Closing Inventory Qty] - _benchmarkMonths * 'Distributor Month'[Sellout Qty Reported])
+			                * 'Distributor Month'[Sell In Unit Price])
+		formatString: #,##0
+		displayFolder: Distributors
+
+	/// Units shipped into the channel but not sold out in the period.
+	measure 'Sell-in minus Sell-out Units' = [Sell-in Units] - [Sell-out Units]
+		formatString: #,##0
+		displayFolder: Distributors
+
+	column 'Date Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: date_key
+
+	column 'Distributor Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: distributor_key
+
+	column 'Product Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: product_key
+
+	column 'Region Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: region_key
+
+	column 'Receipts Qty'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: receipts_qty
+
+	column 'Sell In Qty ERP'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: sell_in_qty_erp
+
+	column 'Sell In Value'
+		dataType: decimal
+		isHidden
+		summarizeBy: none
+		sourceColumn: sell_in_value
+
+	column 'Sell In Unit Price'
+		dataType: decimal
+		isHidden
+		summarizeBy: none
+		sourceColumn: sell_in_unit_price
+
+	column 'Sellout Qty Reported'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: sellout_qty_reported
+
+	column 'Sellout Qty Outlets'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: sellout_qty_outlets
+
+	column 'Sellout Value'
+		dataType: decimal
+		isHidden
+		summarizeBy: none
+		sourceColumn: sellout_value
+
+	column 'Active Outlets'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: active_outlets
+
+	column 'Opening Inventory Qty'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: opening_inventory_qty
+
+	column 'Closing Inventory Qty'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: closing_inventory_qty
+
+	column 'Rollforward Gap Qty'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: rollforward_gap_qty
+
+	column 'DQ SKU Recovered'
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: dq_sku_recovered
+
+	partition 'Distributor Month' = entity
+		mode: directLake
+		source
+			entityName: fact_distributor_month
+			expressionSource: 'DirectLake - Gold'
+

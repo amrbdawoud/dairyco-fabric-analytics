@@ -1,0 +1,69 @@
+/// ERP product master (24 SKUs). Standard Cost is the ERP master value; it is stale for Milk SKUs 1001-1005 from
+/// Jan 2026 (see Cost Variance vs Standard).
+table Product
+
+	column 'Product Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: product_key
+
+	column SKU
+		dataType: string
+		summarizeBy: none
+		sourceColumn: sku
+
+	column Product
+		dataType: string
+		summarizeBy: none
+		sourceColumn: product_name
+
+	column Brand
+		dataType: string
+		summarizeBy: none
+		sourceColumn: brand
+
+	column Category
+		dataType: string
+		summarizeBy: none
+		sourceColumn: category
+
+	column 'Pack Size'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: pack_size
+
+	column 'List Price'
+		dataType: decimal
+		formatString: #,##0.00
+		summarizeBy: none
+		sourceColumn: list_price
+
+	column 'Standard Cost'
+		dataType: decimal
+		formatString: #,##0.00
+		summarizeBy: none
+		sourceColumn: standard_cost
+
+	column 'Shelf Life Days'
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: shelf_life_days
+
+	hierarchy 'Product Hierarchy'
+
+		level Category
+			column: Category
+
+		level Brand
+			column: Brand
+
+		level Product
+			column: Product
+
+	partition Product = entity
+		mode: directLake
+		source
+			entityName: dim_product
+			expressionSource: 'DirectLake - Gold'
+

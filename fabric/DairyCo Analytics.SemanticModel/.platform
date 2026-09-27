@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "DairyCo Analytics",
+    "description": "DairyCo enterprise semantic model (Direct Lake on lh_gold)"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "fc4e981c-4405-4d68-9e68-d09b102d2bba"
+  }
+}
