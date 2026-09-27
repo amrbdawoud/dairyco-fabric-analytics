@@ -1,0 +1,50 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "01ce6ddfc5d93838ae0f",
+  "position": {
+    "x": 20,
+    "y": 10,
+    "z": 0,
+    "height": 90,
+    "width": 1460,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Commercial: growth sits in five Milk SKUs, Nile is stuffing its channel, promotions don't pay back",
+                    "textStyle": {
+                      "fontSize": "20pt",
+                      "fontWeight": "bold",
+                      "color": "#1F3864"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Sell-in (ERP) vs sell-out (distributor platform) · promotion attribution by product + region + date · CRM coverage: Modern Trade & Key Accounts only",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "fontWeight": "normal",
+                      "color": "#595959"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

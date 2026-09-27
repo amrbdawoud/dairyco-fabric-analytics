@@ -1,0 +1,131 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "6a17682e51815addd506",
+  "position": {
+    "x": 1080,
+    "y": 650,
+    "z": 21000,
+    "height": 410,
+    "width": 820,
+    "tabOrder": 21000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Data Quality"
+                    }
+                  },
+                  "Property": "Rule Id"
+                }
+              },
+              "queryRef": "Data Quality.Rule Id",
+              "nativeQueryRef": "Rule Id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Data Quality"
+                    }
+                  },
+                  "Property": "Rule"
+                }
+              },
+              "queryRef": "Data Quality.Rule",
+              "nativeQueryRef": "Rule"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Data Quality"
+                    }
+                  },
+                  "Property": "Severity"
+                }
+              },
+              "queryRef": "Data Quality.Severity",
+              "nativeQueryRef": "Severity"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Data Quality"
+                    }
+                  },
+                  "Property": "DQ Violations"
+                }
+              },
+              "queryRef": "Data Quality.DQ Violations",
+              "nativeQueryRef": "DQ Violations"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Data Quality"
+                  }
+                },
+                "Property": "DQ Violations"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Data trust: latest data-quality checks (flagged, not silently fixed). *Stockout = proxy (no order/backorder data)'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1F3864'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

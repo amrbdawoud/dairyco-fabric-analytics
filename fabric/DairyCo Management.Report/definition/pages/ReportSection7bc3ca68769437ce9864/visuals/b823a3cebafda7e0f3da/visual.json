@@ -1,0 +1,173 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "b823a3cebafda7e0f3da",
+  "position": {
+    "x": 20,
+    "y": 250,
+    "z": 11000,
+    "height": 380,
+    "width": 1060,
+    "tabOrder": 11000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Production Unit"
+                    }
+                  },
+                  "Property": "Plant"
+                }
+              },
+              "queryRef": "Production Unit.Plant",
+              "nativeQueryRef": "Plant"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Production Unit"
+                    }
+                  },
+                  "Property": "Shift"
+                }
+              },
+              "queryRef": "Production Unit.Shift",
+              "nativeQueryRef": "Shift"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Production"
+                    }
+                  },
+                  "Property": "Production Plan Attainment %"
+                }
+              },
+              "queryRef": "Production.Production Plan Attainment %",
+              "nativeQueryRef": "Production Plan Attainment %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Production"
+                    }
+                  },
+                  "Property": "Scrap Rate %"
+                }
+              },
+              "queryRef": "Production.Scrap Rate %",
+              "nativeQueryRef": "Scrap Rate %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Labour"
+                    }
+                  },
+                  "Property": "Overtime Hours per Employee"
+                }
+              },
+              "queryRef": "Labour.Overtime Hours per Employee",
+              "nativeQueryRef": "Overtime Hours per Employee"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Labour"
+                    }
+                  },
+                  "Property": "Absence Rate %"
+                }
+              },
+              "queryRef": "Labour.Absence Rate %",
+              "nativeQueryRef": "Absence Rate %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Production"
+                    }
+                  },
+                  "Property": "Avoidable Scrap Cost"
+                }
+              },
+              "queryRef": "Production.Avoidable Scrap Cost",
+              "nativeQueryRef": "Avoidable Scrap Cost"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Production"
+                  }
+                },
+                "Property": "Scrap Rate %"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Plant × shift: scrap, downtime, overtime and absence move together (avoidable scrap vs Plant 1 average)'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1F3864'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

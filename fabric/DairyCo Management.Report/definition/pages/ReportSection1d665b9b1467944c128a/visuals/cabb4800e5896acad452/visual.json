@@ -1,0 +1,118 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "cabb4800e5896acad452",
+  "position": {
+    "x": 600,
+    "y": 570,
+    "z": 13000,
+    "height": 490,
+    "width": 640,
+    "tabOrder": 13000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Date"
+                    }
+                  },
+                  "Property": "Year Month"
+                }
+              },
+              "queryRef": "Date.Year Month",
+              "nativeQueryRef": "Year Month",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Distributor Month"
+                    }
+                  },
+                  "Property": "Sell-in Units"
+                }
+              },
+              "queryRef": "Distributor Month.Sell-in Units",
+              "nativeQueryRef": "Sell-in Units"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Distributor Month"
+                    }
+                  },
+                  "Property": "Sell-out Units"
+                }
+              },
+              "queryRef": "Distributor Month.Sell-out Units",
+              "nativeQueryRef": "Sell-out Units"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Distributor Month"
+                    }
+                  },
+                  "Property": "Distributor Stock Units"
+                }
+              },
+              "queryRef": "Distributor Month.Distributor Stock Units",
+              "nativeQueryRef": "Distributor Stock Units"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Sell-in vs sell-out vs distributor stock (select a distributor above)'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1F3864'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "13298cc387a40f99539a",
+  "position": {
+    "x": 20,
+    "y": 10,
+    "z": 0,
+    "height": 90,
+    "width": 1460,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Revenue +7.6%, gross profit −5.4%: the margin broke in January 2026",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "20pt",
+                      "color": "#1f3864"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Jan–Aug 2026 vs Jan–Aug 2025 (like-for-like). Every figure is a governed measure in the DairyCo Analytics semantic model. -",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#595959"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

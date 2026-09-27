@@ -1,0 +1,259 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "63aedd1c7d7910dd87df",
+  "position": {
+    "x": 600,
+    "y": 250,
+    "z": 12000,
+    "height": 300,
+    "width": 1300,
+    "tabOrder": 12000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Distributor"
+                    }
+                  },
+                  "Property": "Distributor"
+                }
+              },
+              "queryRef": "Distributor.Distributor",
+              "nativeQueryRef": "Distributor"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sales"
+                    }
+                  },
+                  "Property": "Net Revenue"
+                }
+              },
+              "queryRef": "Sales.Net Revenue",
+              "nativeQueryRef": "Net Revenue"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sales"
+                    }
+                  },
+                  "Property": "Revenue Growth %"
+                }
+              },
+              "queryRef": "Sales.Revenue Growth %",
+              "nativeQueryRef": "Revenue Growth %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Distributor Month"
+                    }
+                  },
+                  "Property": "Sell-in Units"
+                }
+              },
+              "queryRef": "Distributor Month.Sell-in Units",
+              "nativeQueryRef": "Sell-in Units"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Distributor Month"
+                    }
+                  },
+                  "Property": "Sell-out Units"
+                }
+              },
+              "queryRef": "Distributor Month.Sell-out Units",
+              "nativeQueryRef": "Sell-out Units"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Distributor Month"
+                    }
+                  },
+                  "Property": "Sell-through %"
+                }
+              },
+              "queryRef": "Distributor Month.Sell-through %",
+              "nativeQueryRef": "Sell-through %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Distributor Month"
+                    }
+                  },
+                  "Property": "Distributor Months of Cover"
+                }
+              },
+              "queryRef": "Distributor Month.Distributor Months of Cover",
+              "nativeQueryRef": "Distributor Months of Cover"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Distributor Month"
+                    }
+                  },
+                  "Property": "Excess Channel Stock Value"
+                }
+              },
+              "queryRef": "Distributor Month.Excess Channel Stock Value",
+              "nativeQueryRef": "Excess Channel Stock Value"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Returns"
+                    }
+                  },
+                  "Property": "Return Rate %"
+                }
+              },
+              "queryRef": "Returns.Return Rate %",
+              "nativeQueryRef": "Return Rate %"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Distributor Month"
+                  }
+                },
+                "Property": "Distributor Months of Cover"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Distributor scorecard 2026 YTD — judge distributors on sell-out and stock cover, not sell-in'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1F3864'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ed2b0f7910f0a41e9e5c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Date"
+              }
+            },
+            "Property": "Year"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "Date",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "Year"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "2026L"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  }
+}

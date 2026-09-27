@@ -1,0 +1,131 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "27e26dca597b6ba4069c",
+  "position": {
+    "x": 1260,
+    "y": 570,
+    "z": 14000,
+    "height": 490,
+    "width": 640,
+    "tabOrder": 14000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Promotion"
+                    }
+                  },
+                  "Property": "Promotion"
+                }
+              },
+              "queryRef": "Promotion.Promotion",
+              "nativeQueryRef": "Promotion"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Promotion Performance"
+                    }
+                  },
+                  "Property": "Promotion Support Cost"
+                }
+              },
+              "queryRef": "Promotion Performance.Promotion Support Cost",
+              "nativeQueryRef": "Promotion Support Cost"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Promotion Performance"
+                    }
+                  },
+                  "Property": "Average Volume Lift %"
+                }
+              },
+              "queryRef": "Promotion Performance.Average Volume Lift %",
+              "nativeQueryRef": "Average Volume Lift %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Promotion Performance"
+                    }
+                  },
+                  "Property": "Net Promotion Return"
+                }
+              },
+              "queryRef": "Promotion Performance.Net Promotion Return",
+              "nativeQueryRef": "Net Promotion Return"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Promotion Performance"
+                  }
+                },
+                "Property": "Net Promotion Return"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Promotion ROI — 0 of 37 measurable promotions cover their support cost'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1F3864'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
