@@ -1,0 +1,31 @@
+/// Third-party distributors (one per region).
+table Distributor
+
+	column 'Distributor Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: distributor_key
+
+	column Distributor
+		dataType: string
+		summarizeBy: none
+		sourceColumn: distributor_name
+
+	column 'Distributor Region Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: region_key
+
+	column 'Distributor Region'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: region
+
+	partition Distributor = entity
+		mode: directLake
+		source
+			entityName: dim_distributor
+			expressionSource: 'DirectLake - Gold'
+

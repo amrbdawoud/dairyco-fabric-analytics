@@ -1,0 +1,4 @@
+/// Executives and central functions: enterprise-wide view, no row filters.
+role Executive
+	modelPermission: read
+

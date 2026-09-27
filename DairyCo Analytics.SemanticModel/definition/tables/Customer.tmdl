@@ -1,0 +1,52 @@
+/// Master customers after de-duplication (8 upper-case duplicate IDs merged into their proper-case master).
+/// Region is denormalised (no relationship to Region, to avoid ambiguous paths).
+table Customer
+
+	column 'Customer Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: customer_key
+
+	column Customer
+		dataType: string
+		summarizeBy: none
+		sourceColumn: customer_name
+
+	column Channel
+		dataType: string
+		summarizeBy: none
+		sourceColumn: channel
+
+	column 'Customer Region Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: region_key
+
+	column 'Customer Region'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: region
+
+	column 'Sales Territory'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: sales_territory
+
+	column 'Is Strategic Account'
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: is_strategic
+
+	column 'In CRM'
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: in_crm
+
+	partition Customer = entity
+		mode: directLake
+		source
+			entityName: dim_customer
+			expressionSource: 'DirectLake - Gold'
+

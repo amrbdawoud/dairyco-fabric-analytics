@@ -1,0 +1,151 @@
+/// Production orders (grain: order = month x plant x line x shift x SKU).
+table Production
+
+	/// Planned production units.
+	measure 'Planned Units' = SUM('Production'[Planned Qty])
+		formatString: #,##0
+		displayFolder: Production
+
+	/// Units produced (good + scrap).
+	measure 'Actual Units' = SUM('Production'[Actual Qty])
+		formatString: #,##0
+		displayFolder: Production
+
+	/// Units passing quality.
+	measure 'Good Units' = SUM('Production'[Good Qty])
+		formatString: #,##0
+		displayFolder: Production
+
+	/// Units scrapped.
+	measure 'Scrap Units' = SUM('Production'[Scrap Qty])
+		formatString: #,##0
+		displayFolder: Production
+
+	/// Actual / planned units - the figure Operations reports.
+	measure 'Production Plan Attainment %' = DIVIDE([Actual Units], [Planned Units])
+		formatString: 0.0%
+		displayFolder: Production
+
+	/// Good / planned units - what customers can actually be served from.
+	measure 'Good Output Attainment %' = DIVIDE([Good Units], [Planned Units])
+		formatString: 0.0%
+		displayFolder: Production
+
+	/// Scrap / actual units.
+	measure 'Scrap Rate %' = DIVIDE([Scrap Units], [Actual Units])
+		formatString: 0.00%
+		displayFolder: Production
+
+	/// Unplanned downtime hours.
+	measure 'Downtime Hours' = DIVIDE(SUM('Production'[Downtime Minutes Amount]), 60)
+		formatString: #,##0.0
+		displayFolder: Production
+
+	/// Average downtime per production order.
+	measure 'Downtime Minutes per Order' = DIVIDE(SUM('Production'[Downtime Minutes Amount]), COUNTROWS('Production'))
+		formatString: #,##0.0
+		displayFolder: Production
+
+	/// Scrapped units at standard cost; EGP.
+	measure 'Scrap Cost' = SUM('Production'[Scrap Value Amount])
+		formatString: #,##0
+		displayFolder: Production
+
+	/// Conservative internal benchmark: Plant 1 average scrap rate (all shifts) in the same period. Stretch benchmark
+	/// = Plant 1 day shifts (~1.8%).
+	measure 'Benchmark Scrap Rate %' = CALCULATE([Scrap Rate %], REMOVEFILTERS('Production Unit'), 'Production Unit'[Plant] = "Plant 1")
+		formatString: 0.00%
+		displayFolder: Production
+
+	/// Scrap above the Plant 1 average rate, at standard cost - cost removable by bringing Plant 2 and night shifts
+	/// to Plant 1 practice (Leak 2).
+	measure 'Avoidable Scrap Cost' =
+			VAR _benchmark = [Benchmark Scrap Rate %]
+			RETURN SUMX('Production',
+			    MAX(0, 'Production'[Scrap Qty] - 'Production'[Actual Qty] * _benchmark)
+			        * DIVIDE('Production'[Scrap Value Amount], 'Production'[Scrap Qty]))
+		formatString: #,##0
+		displayFolder: Production
+
+	column 'Production Order Id'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: production_order_id
+
+	column 'Date Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: date_key
+
+	column 'Production Unit Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: production_unit_key
+
+	column 'Product Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: product_key
+
+	column 'Planned Qty'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: planned_qty
+
+	column 'Actual Qty'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: actual_qty
+
+	column 'Good Qty'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: good_qty
+
+	column 'Scrap Qty'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: scrap_qty
+
+	column 'Downtime Minutes Amount'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: downtime_minutes
+
+	column 'Downtime Reason'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: downtime_reason
+
+	column 'Material Shortage'
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: material_shortage_flag
+
+	column 'Scrap Value Amount'
+		dataType: decimal
+		isHidden
+		summarizeBy: none
+		sourceColumn: scrap_value_std
+
+	column 'Good Value Amount'
+		dataType: decimal
+		isHidden
+		summarizeBy: none
+		sourceColumn: good_value_std
+
+	partition Production = entity
+		mode: directLake
+		source
+			entityName: fact_production
+			expressionSource: 'DirectLake - Gold'
+

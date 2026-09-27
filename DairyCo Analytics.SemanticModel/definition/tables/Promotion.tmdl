@@ -1,0 +1,61 @@
+/// Trade promotions from ERP plus a 'No promotion' member (key -1) for unpromoted invoice lines.
+table Promotion
+
+	column 'Promotion Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: promotion_key
+
+	column Promotion
+		dataType: string
+		summarizeBy: none
+		sourceColumn: promotion_code
+
+	column 'Promotion Type'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: promotion_type
+
+	column 'Promotion Product Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: product_key
+
+	column 'Promotion Region Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: region_key
+
+	column 'Promotion Start'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		summarizeBy: none
+		sourceColumn: start_date
+
+	column 'Promotion End'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		summarizeBy: none
+		sourceColumn: end_date
+
+	column 'Stated Discount %'
+		dataType: decimal
+		formatString: 0.0%
+		summarizeBy: none
+		sourceColumn: discount_pct
+
+	column 'Stated Support Cost'
+		dataType: decimal
+		formatString: #,##0
+		summarizeBy: none
+		sourceColumn: support_cost
+
+	partition Promotion = entity
+		mode: directLake
+		source
+			entityName: dim_promotion
+			expressionSource: 'DirectLake - Gold'
+

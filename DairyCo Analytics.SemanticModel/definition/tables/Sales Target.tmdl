@@ -1,0 +1,61 @@
+/// Monthly revenue and volume targets by region x category. WARNING: targets are ~24x actual revenue (implied
+/// price fixed at 35 EGP); use only relative/indexed attainment until Finance restates them.
+table 'Sales Target'
+
+	/// Revenue target; category filter flows from Product[Category] via TREATAS. Source targets are on a different
+	/// scale from actuals.
+	measure 'Revenue Target' = CALCULATE(SUM('Sales Target'[Revenue Target Amount]), TREATAS(VALUES('Product'[Category]), 'Sales Target'[Target Category]))
+		formatString: #,##0
+		displayFolder: Targets
+
+	/// UNRELIABLE AS ABSOLUTE: ~4% because targets are ~24x actuals. Shown for completeness; use Target Attainment
+	/// Index.
+	measure 'Target Attainment %' = DIVIDE([Net Revenue], [Revenue Target])
+		formatString: 0.0%
+		displayFolder: Targets
+
+	/// Attainment relative to the company average in the same period (1.00 = average). Scale-free, so usable while
+	/// target scale is unresolved.
+	measure 'Target Attainment Index' =
+			VAR _att = [Target Attainment %]
+			VAR _company = CALCULATE([Target Attainment %], REMOVEFILTERS('Region'), REMOVEFILTERS('Product'), REMOVEFILTERS('Customer'), REMOVEFILTERS('Distributor'))
+			RETURN DIVIDE(_att, _company)
+		formatString: 0.00
+		displayFolder: Targets
+
+	column 'Date Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: date_key
+
+	column 'Region Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: region_key
+
+	column 'Target Category'
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: category
+
+	column 'Revenue Target Amount'
+		dataType: decimal
+		isHidden
+		summarizeBy: none
+		sourceColumn: revenue_target
+
+	column 'Volume Target Units'
+		dataType: double
+		isHidden
+		summarizeBy: none
+		sourceColumn: volume_target
+
+	partition 'Sales Target' = entity
+		mode: directLake
+		source
+			entityName: fact_sales_target
+			expressionSource: 'DirectLake - Gold'
+

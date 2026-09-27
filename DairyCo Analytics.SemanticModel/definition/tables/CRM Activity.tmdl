@@ -1,0 +1,54 @@
+/// Salesforce activities (grain: activity).
+table 'CRM Activity'
+
+	/// Sales activities logged.
+	measure Activities = COUNTROWS('CRM Activity')
+		formatString: #,##0
+		displayFolder: CRM
+
+	/// Hours of logged sales activity.
+	measure 'Activity Hours' = DIVIDE(SUM('CRM Activity'[Duration Minutes]), 60)
+		formatString: #,##0.0
+		displayFolder: CRM
+
+	column 'Activity Id'
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: activity_id
+
+	column 'Date Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: date_key
+
+	column 'Customer Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: customer_key
+
+	column 'Region Key'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: region_key
+
+	column 'Activity Type'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: activity_type
+
+	column 'Duration Minutes'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: duration_minutes
+
+	partition 'CRM Activity' = entity
+		mode: directLake
+		source
+			entityName: fact_crm_activity
+			expressionSource: 'DirectLake - Gold'
+
