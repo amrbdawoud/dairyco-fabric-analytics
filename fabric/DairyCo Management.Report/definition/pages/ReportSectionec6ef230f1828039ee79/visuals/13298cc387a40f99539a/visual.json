@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "13298cc387a40f99539a",
   "position": {
     "x": 20,
@@ -31,7 +31,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Jan–Aug 2026 vs Jan–Aug 2025 (like-for-like). Every figure is a governed measure in the DairyCo Analytics semantic model. -",
+                    "value": "Jan–Aug 2026 vs Jan–Aug 2025 (like-for-like). Every figure is a governed measure in the DairyCo Analytics semantic model. -----",
                     "textStyle": {
                       "fontSize": "11pt",
                       "color": "#595959"
