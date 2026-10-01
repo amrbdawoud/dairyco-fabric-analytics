@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "3561191d0a721449a8f0",
   "position": {
     "x": 20,
@@ -21,9 +21,9 @@
                   {
                     "value": "Operations: plan attainment hides Plant 2 / Shift C scrap and a copy-paste forecast",
                     "textStyle": {
-                      "fontSize": "20pt",
                       "fontWeight": "bold",
-                      "color": "#1F3864"
+                      "fontSize": "20pt",
+                      "color": "#1f3864"
                     }
                   }
                 ]
@@ -31,10 +31,9 @@
               {
                 "textRuns": [
                   {
-                    "value": "Production plan attainment on actual vs good output · forecast bias by category · weekly warehouse snapshots · labour aggregated to plant/line/shift (no individual pay)",
+                    "value": "Production plan attainment on actual vs good output · forecast bias by category · weekly warehouse snapshots · labour aggregated to plant/line/shift (no individual pay) -----",
                     "textStyle": {
                       "fontSize": "11pt",
-                      "fontWeight": "normal",
                       "color": "#595959"
                     }
                   }
